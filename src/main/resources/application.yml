@@ -1,1 +1,6 @@
-
+GAuth:
+  clientId: 1
+  clientSecret: 1
+  loginUrl: 1
+  redirectUri: 1
+  code: 1
