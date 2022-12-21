@@ -56,7 +56,7 @@ public class Major {
 
     //전공 / 자격증 항목
     @Column(name = "major_and_certificate")
-    private String mojorCertificate;
+    private String majorCertificate;
 
 
 

@@ -12,4 +12,6 @@ public class MajorServiceImpl {
     @Autowired
     private final MajorRepository majorRepository;
 
+
+
 }
