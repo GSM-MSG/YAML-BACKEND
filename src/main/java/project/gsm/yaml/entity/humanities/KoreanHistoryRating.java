@@ -9,7 +9,7 @@ public enum KoreanHistoryRating {
     FIRST(50),
     SECOND(50),
     THIRD(50),
-    FORTH(0),
+    FOURTH(0),
     FIFTH(0),
     SIXTH(0),
     NONE(0);

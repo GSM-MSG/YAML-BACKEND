@@ -8,7 +8,7 @@ import lombok.Getter;
 public enum Hsk {
     SIXTH(1000),
     FIFTH(900),
-    FORTH(800),
+    FOURTH(800),
     THIRD(700),
     SECOND(600),
     NONE(0),
