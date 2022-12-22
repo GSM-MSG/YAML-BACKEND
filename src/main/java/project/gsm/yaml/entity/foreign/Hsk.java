@@ -5,11 +5,14 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum Opic {
-    INT_2(1000),
-    INT_1(900),
-    INT_LOW(800),
-    NOVICE_HIGH(700),
-    NONE(0);
+public enum Hsk {
+    SIXTH(1000),
+    FIFTH(900),
+    FORTH(800),
+    THIRD(700),
+    SECOND(600),
+    FIRST(0),
+    NONE(0),
+    ;
     private Integer score;
 }

@@ -19,10 +19,12 @@ public class Foreign {
     private Integer toeic;
     private Integer toefl;
     private Integer teps;
-    private Integer toeicSpeaking;
+    @Enumerated(EnumType.STRING)
+    private ToeicSpeaking toeicSpeaking;
     @Enumerated(EnumType.STRING)
     private Opic opic;
     private Integer jpt;
     private Integer cpt;
-    private Integer hsk;
+    @Enumerated(EnumType.STRING)
+    private Hsk hsk;
 }
