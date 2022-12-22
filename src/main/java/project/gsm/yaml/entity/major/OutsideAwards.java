@@ -1,4 +1,4 @@
-package project.gsm.yaml.entity.humanities;
+package project.gsm.yaml.entity.major;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,13 +7,13 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Table(name = "humanities_awards")
+@Table(name = "major_outside_awards")
 @Entity
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Awards {
+public class OutsideAwards {
     @Id
     @GeneratedValue
     private Long id;
@@ -23,6 +23,6 @@ public class Awards {
     private String fileUrl;
 
     @ManyToOne
-    @JoinColumn(name = "humanities")
-    private Humanities humanities;
+    @JoinColumn(name = "major")
+    private Major major;
 }

@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,43 +21,28 @@ public class Major {
     private Long id;
 
     // 교외 수상 경력
-    @Column(name = "outside_award")
-    private String outsideAward;
-
-    @Column(name = "outside_award_file_url")
-    private String outsideAwardFileURL;
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "major")
+    private List<OutsideAwards> outsideAwardsList;
 
     //교내 수상 경력
-    @Column(name = "inside_aword")
-    private Prize insideAward;
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "major")
+    private List<InsideAwards> insideAwardsList;
 
     //교외 대회 및 교육 참가
-    @Column(name = "outside_contest")
-    private String outsideContest;
-
-    @Column(name = "outside_contest_start_at")
-    private String outsideContestStartAt;
-
-    @Column(name = "outside_contest_end_at")
-    private String outsideContestEndAt;
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "major")
+    private List<OutsideContest> outsideContests;
 
     //교내 대회 및 교육 참가
-    @Column(name = "inside_contest")
-    private String insideContest;
-
-    @Column(name = "inside_contest_start_at")
-    private String insideContestStartAt;
-
-    @Column(name = "inside_contest_end_at")
-    private String insideContestEndAt;
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "major")
+    private List<InsideContest> insideContests;
 
     //전공동아리
     @Column(name = "mojor_club")
     private String majorClub;
 
     //전공 / 자격증 항목
-    @Column(name = "major_and_certificate")
-    private String majorCertificate;
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "major")
+    private List<Certificate> certificates;
 
 
 
