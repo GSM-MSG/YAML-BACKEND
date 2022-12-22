@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import project.gsm.yaml.entity.Major;
-import project.gsm.yaml.entity.Prize;
+import project.gsm.yaml.entity.major.Major;
+import project.gsm.yaml.entity.major.Prize;
 
 @ToString
 @Builder
