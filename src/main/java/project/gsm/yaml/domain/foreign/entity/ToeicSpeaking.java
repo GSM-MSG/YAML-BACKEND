@@ -1,4 +1,4 @@
-package project.gsm.yaml.domain.foreign;
+package project.gsm.yaml.domain.foreign.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

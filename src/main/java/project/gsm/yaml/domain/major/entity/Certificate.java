@@ -1,4 +1,4 @@
-package project.gsm.yaml.domain.major;
+package project.gsm.yaml.domain.major.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class OutsideContest {
+public class Certificate {
     @Id
     @GeneratedValue
     private Long id;
