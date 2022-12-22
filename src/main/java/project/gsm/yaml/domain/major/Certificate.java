@@ -1,4 +1,4 @@
-package project.gsm.yaml.entity.major;
+package project.gsm.yaml.domain.major;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,21 +7,18 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Table(name = "major_outside_awards")
 @Entity
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class OutsideAwards {
+public class Certificate {
     @Id
     @GeneratedValue
     private Long id;
-
     private String name;
-
-    private String fileUrl;
-
+    private String startAt;
+    private String endAt;
     @ManyToOne
     @JoinColumn(name = "major")
     private Major major;

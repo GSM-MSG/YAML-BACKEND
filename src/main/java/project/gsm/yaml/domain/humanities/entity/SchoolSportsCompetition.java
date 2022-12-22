@@ -1,4 +1,4 @@
-package project.gsm.yaml.entity.humanities;
+package project.gsm.yaml.domain.humanities.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

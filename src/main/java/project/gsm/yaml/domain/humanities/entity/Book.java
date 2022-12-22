@@ -1,4 +1,4 @@
-package project.gsm.yaml.entity.humanities;
+package project.gsm.yaml.domain.humanities.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,21 +7,19 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Table(name = "humanities_awards")
 @Entity
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Awards {
+public class Book {
     @Id
     @GeneratedValue
     private Long id;
-
     private String name;
-
-    private String fileUrl;
-
+    private String author;
+    private String field;
+    private String review;
     @ManyToOne
     @JoinColumn(name = "humanities")
     private Humanities humanities;
