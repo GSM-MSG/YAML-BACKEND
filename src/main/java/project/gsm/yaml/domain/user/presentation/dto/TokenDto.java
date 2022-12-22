@@ -1,9 +1,12 @@
 package project.gsm.yaml.domain.user.presentation.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.time.ZonedDateTime;
 
 @Getter
 @Builder
@@ -12,6 +15,6 @@ import lombok.NoArgsConstructor;
 public class TokenDto {
     private String accessToken;
     private String refreshToken;
-    private String accessExpire;
-    private String refreshExpire;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    private ZonedDateTime expiredAt;
 }

@@ -1,8 +1,10 @@
 package project.gsm.yaml.domain.user.presentation;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import project.gsm.yaml.domain.user.presentation.dto.TokenDto;
 import project.gsm.yaml.domain.user.service.RedirectService;
 import project.gsm.yaml.domain.user.service.SignInService;
 
@@ -22,7 +24,8 @@ public class AuthController {
     }
 
     @GetMapping("/redirect")
-    public void redirectUrl(@RequestParam(value = "code") String code, HttpServletResponse response) throws IOException {
-        redirectService.execute(code);
+    public ResponseEntity<TokenDto> redirectUrl(@RequestParam(value = "code") String code, HttpServletResponse response) throws IOException {
+        TokenDto tokenDto = redirectService.execute(code);
+        return new ResponseEntity<>(tokenDto, HttpStatus.OK);
     }
 }
