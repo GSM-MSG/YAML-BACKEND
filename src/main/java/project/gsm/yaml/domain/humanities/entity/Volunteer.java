@@ -1,25 +1,23 @@
-package project.gsm.yaml.entity.major;
+package project.gsm.yaml.domain.humanities.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class OutsideContest {
+public class Volunteer {
     @Id
     @GeneratedValue
     private Long id;
     private String name;
-    private String startAt;
-    private String endAt;
-    @ManyToOne
-    @JoinColumn(name = "major")
-    private Major major;
+    private Integer hour;
 }

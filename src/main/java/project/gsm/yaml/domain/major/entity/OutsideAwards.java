@@ -1,4 +1,4 @@
-package project.gsm.yaml.entity.humanities;
+package project.gsm.yaml.domain.major.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,20 +7,22 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+@Table(name = "major_outside_awards")
 @Entity
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Book {
+public class OutsideAwards {
     @Id
     @GeneratedValue
     private Long id;
+
     private String name;
-    private String author;
-    private String field;
-    private String review;
+
+    private String fileUrl;
+
     @ManyToOne
-    @JoinColumn(name = "humanities")
-    private Humanities humanities;
+    @JoinColumn(name = "major")
+    private Major major;
 }
