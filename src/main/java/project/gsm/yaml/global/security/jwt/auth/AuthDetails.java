@@ -1,9 +1,9 @@
-package GFO.Spring.global.security.auth;
+package project.gsm.yaml.global.security.jwt.auth;
 
-import GFO.Spring.domain.user.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import project.gsm.yaml.domain.user.entity.User;
 
 import java.util.Collection;
 
@@ -19,7 +19,7 @@ public class AuthDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return null;
     }
 
     @Override

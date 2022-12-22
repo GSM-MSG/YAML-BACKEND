@@ -1,12 +1,12 @@
-package GFO.Spring.global.security.auth;
+package project.gsm.yaml.global.security.jwt.auth;
 
-import GFO.Spring.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import project.gsm.yaml.domain.user.repository.UserRepository;
 
 @Service
 @RequiredArgsConstructor
