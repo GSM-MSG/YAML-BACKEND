@@ -33,8 +33,13 @@ public class Major {
     private List<OutsideContest> outsideContests;
 
     //교내 대회 및 교육 참가
-    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "major")
-    private List<InsideContest> insideContests;
+    private Boolean gsmFestival;
+
+    private Boolean clubMajorPresentation;
+
+    private Integer afterSchool;
+
+    private Boolean deepMajorClub;
 
     //전공동아리
     @Column(name = "mojor_club")
