@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import project.gsm.yaml.domain.user.exception.exceptioncollection.BlackListAlreadyExistException;
 import project.gsm.yaml.domain.user.exception.exceptioncollection.RefreshTokenNotFoundException;
+import project.gsm.yaml.domain.user.exception.exceptioncollection.UserNotFoundException;
 import project.gsm.yaml.global.exceptions.ErrorResponse;
 import project.gsm.yaml.global.exceptions.exceptioncollection.TokenExpirationException;
 import project.gsm.yaml.global.exceptions.exceptioncollection.TokenNotValidException;
@@ -32,6 +33,12 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(BlackListAlreadyExistException.class)
     public ResponseEntity<ErrorResponse> BlackListAlreadyExist(BlackListAlreadyExistException exception) {
+        ErrorResponse errorResponse = new ErrorResponse(exception.getErrorCode().getMessage(), exception.getErrorCode().getStatus());
+        return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.valueOf(exception.getErrorCode().getStatus()));
+    }
+
+    @ExceptionHandler(BlackListAlreadyExistException.class)
+    public ResponseEntity<ErrorResponse> UserNotFoundException(UserNotFoundException exception) {
         ErrorResponse errorResponse = new ErrorResponse(exception.getErrorCode().getMessage(), exception.getErrorCode().getStatus());
         return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.valueOf(exception.getErrorCode().getStatus()));
     }
