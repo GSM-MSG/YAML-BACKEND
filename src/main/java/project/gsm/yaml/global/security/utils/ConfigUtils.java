@@ -33,7 +33,15 @@ public class ConfigUtils {
         return gAuthProperties.getClientId();
     }
 
+    public String getGAuthClientSecret() {
+        return gAuthProperties.getClientSecret();
+    }
+
     public String getGAuthRedirectUri() {
         return gAuthProperties.getRedirectUri();
+    }
+
+    public String getGAUthAuthUrl() {
+        return gAuthProperties.getAuthUrl();
     }
 }

@@ -1,6 +1,6 @@
-GAuth:
-  clientId: 1
-  clientSecret: 1
-  loginUrl: 1
-  redirectUri: 1
-  code: 1
+gauth:
+  clientId:
+  clientSecret:
+  loginUrl:
+  redirectUri: localhost:8080/auth/redirect
+  authUrl: http://10.82.18.111:8080/

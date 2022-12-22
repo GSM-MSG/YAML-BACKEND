@@ -14,4 +14,5 @@ public class GAuthProperties {
     private final String clientSecret;
     private final String loginUrl;
     private final String redirectUri;
+    private final String authUrl;
 }

@@ -19,6 +19,9 @@ public class User extends BaseTimeEntity{
     private String email;
 
     @Column
+    private String name;
+
+    @Column
     private String profileUrl;
 
     @Column
@@ -28,7 +31,7 @@ public class User extends BaseTimeEntity{
     private Integer classNum;
 
     @Column
-    private Integer num;
+    private Integer number;
 
     @Column
     private Gender gender;
