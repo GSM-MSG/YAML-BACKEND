@@ -46,7 +46,7 @@ public class RedirectServiceImpl implements RedirectService {
         return TokenDto.builder()
                 .accessToken(access)
                 .refreshToken(refresh)
-                .expiredAt(jwtProvider.getExpiredAtToken())
+                .expiredAt(jwtProvider.getExpiredAtToken(access, jwtProperties.getAccessSecret()))
                 .build();
     }
 }

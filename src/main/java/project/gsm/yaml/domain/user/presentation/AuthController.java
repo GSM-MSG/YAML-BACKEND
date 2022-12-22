@@ -6,10 +6,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import project.gsm.yaml.domain.user.entity.RefreshToken;
 import project.gsm.yaml.domain.user.exception.exceptioncollection.RefreshTokenNotFoundException;
+import project.gsm.yaml.domain.user.presentation.dto.NewTokenResponse;
 import project.gsm.yaml.domain.user.presentation.dto.TokenDto;
 import project.gsm.yaml.domain.user.repository.RefreshTokenRepository;
 import project.gsm.yaml.domain.user.service.LogoutService;
 import project.gsm.yaml.domain.user.service.RedirectService;
+import project.gsm.yaml.domain.user.service.RenewTokenService;
 import project.gsm.yaml.domain.user.service.SignInService;
 
 import javax.servlet.http.HttpServletResponse;
@@ -22,7 +24,7 @@ public class AuthController {
     private final SignInService signInService;
     private final RedirectService redirectService;
     private final LogoutService logoutService;
-
+    private final RenewTokenService renewTokenService;
     private final RefreshTokenRepository refreshTokenRepository;
 
     @PostMapping
@@ -41,4 +43,11 @@ public class AuthController {
         logoutService.execute(accessToken);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @PatchMapping
+    public ResponseEntity<NewTokenResponse> reIssueToken(@RequestHeader("RefreshToken") String token) {
+        NewTokenResponse reIssueToken = renewTokenService.execute(token);
+        return new ResponseEntity<>(reIssueToken, HttpStatus.OK);
+    }
+
 }

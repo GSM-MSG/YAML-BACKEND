@@ -25,4 +25,8 @@ public class RefreshToken {
     @TimeToLive
     private Long expiredAt;
 
+    public void exchangeRefreshToken(String token) {
+        this.token = token;
+    }
+
 }

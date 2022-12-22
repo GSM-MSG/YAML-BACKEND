@@ -75,7 +75,7 @@ public class JwtProvider {
         return null;
     }
 
-    public ZonedDateTime getExpiredAtToken() {
+    public ZonedDateTime getExpiredAtToken(String token, String secret) {
         return ZonedDateTime.now().plusSeconds(ACCESS_TOKEN_EXPIRE_TIME);
     }
 
@@ -102,5 +102,10 @@ public class JwtProvider {
 
     public String getTokenEmail(String token, String secret) {
         return getTokenBody(token, secret).get("email", String.class);
+    }
+
+    public String getUserEmail(String token, String secret) {
+        Claims claims = getTokenBody(token, secret);
+        return claims.get("email", String.class);
     }
 }
