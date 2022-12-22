@@ -1,11 +1,9 @@
 package project.gsm.yaml.domain.user.presentation.dto;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-@Data
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class GAuthLoginResponse {
-    private String accessToken;
-    private String refreshToken;
+    private final String accessToken;
+    private final String refreshToken;
 }
