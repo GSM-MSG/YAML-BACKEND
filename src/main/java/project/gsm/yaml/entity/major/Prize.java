@@ -1,4 +1,4 @@
-package project.gsm.yaml.entity;
+package project.gsm.yaml.entity.major;
 
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
