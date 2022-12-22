@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import project.gsm.yaml.domain.user.entity.User;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,7 +18,7 @@ public class Major {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "sequence_id")
-    private Long id;
+    private Long id
 
     // 교외 수상 경력
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "major")
@@ -37,13 +38,14 @@ public class Major {
     private Boolean deepMajorClub;
 
     //전공동아리
-    @Column(name = "mojor_club")
+    @Column(name = "major_club")
     private String majorClub;
 
     //전공 / 자격증 항목
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "major")
     private List<Certificate> certificates;
 
-
+    @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "major")
+    private User user;
 
 }
