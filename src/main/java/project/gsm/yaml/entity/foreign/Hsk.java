@@ -11,7 +11,6 @@ public enum Hsk {
     FORTH(800),
     THIRD(700),
     SECOND(600),
-    FIRST(0),
     NONE(0),
     ;
     private Integer score;
