@@ -17,8 +17,8 @@ public class MajorController {
     private final PrizeService prizeService;
 
     @GetMapping("/prize")
-    public ResponseEntity<PrizeResponse> getPrize(@RequestHeader("Authorization") String accessToken) {
-        PrizeResponse prizeResponse = prizeService.execute(accessToken);
+    public ResponseEntity<PrizeResponse> getPrize() {
+        PrizeResponse prizeResponse = prizeService.execute();
         return new ResponseEntity<>(prizeResponse, HttpStatus.OK);
     }
 

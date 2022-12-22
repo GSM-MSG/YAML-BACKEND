@@ -19,7 +19,7 @@ public class PrizeServiceImpl implements PrizeService {
 
 
     @Override
-    public PrizeResponse execute(String accessToken) {
+    public PrizeResponse execute() {
         User currentUser = userUtil.currentUser();
         List<SingleOutsideResponse> outsidePrizeResponseList = currentUser.getMajor().getOutsideAwardsList().stream()
                 .map(SingleOutsideResponse::new)
