@@ -24,10 +24,6 @@ public class Major {
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "major")
     private List<OutsideAwards> outsideAwardsList;
 
-    //교내 수상 경력
-    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "major")
-    private List<InsideAwards> insideAwardsList;
-
     //교외 대회 및 교육 참가
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "major")
     private List<OutsideContest> outsideContests;
