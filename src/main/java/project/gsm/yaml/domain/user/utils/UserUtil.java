@@ -1,4 +1,4 @@
-package project.gsm.yaml.global.security.utils;
+package project.gsm.yaml.domain.user.utils;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;

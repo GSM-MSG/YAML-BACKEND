@@ -12,7 +12,7 @@ import project.gsm.yaml.domain.user.repository.BlackListRepository;
 import project.gsm.yaml.domain.user.repository.RefreshTokenRepository;
 import project.gsm.yaml.domain.user.service.LogoutService;
 import project.gsm.yaml.global.security.jwt.JwtProvider;
-import project.gsm.yaml.global.security.utils.UserUtil;
+import project.gsm.yaml.domain.user.utils.UserUtil;
 
 @Service
 @RequiredArgsConstructor
