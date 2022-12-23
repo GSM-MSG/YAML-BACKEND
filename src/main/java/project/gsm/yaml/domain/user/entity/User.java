@@ -3,6 +3,7 @@ package project.gsm.yaml.domain.user.entity;
 import lombok.*;
 import project.gsm.yaml.domain.humanities.entity.Book;
 import project.gsm.yaml.domain.humanities.entity.Humanities;
+import project.gsm.yaml.domain.major.entity.Major;
 import project.gsm.yaml.domain.user.enums.Gender;
 import project.gsm.yaml.domain.user.enums.Role;
 
@@ -38,6 +39,10 @@ public class User extends BaseTimeEntity{
 
     @Column
     private Role role;
+
+    @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "user")
+    @JoinColumn(name = "major_id")
+    private Major major;
 
     @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "humanities")
     @JoinColumn(name = "humanities")
