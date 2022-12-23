@@ -35,6 +35,9 @@ public class Humanities {
     private InnerSportsLeague sportsLeague;
 
     @Enumerated(EnumType.STRING)
+    private BookMarathon bookMarathon;
+
+    @Enumerated(EnumType.STRING)
     private SchoolSportsCompetition schoolSportsCompetition;
 
     @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "user")

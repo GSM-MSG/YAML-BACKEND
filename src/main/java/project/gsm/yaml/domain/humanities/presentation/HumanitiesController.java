@@ -26,7 +26,7 @@ public class HumanitiesController {
 
     @GetMapping("/books")
     public ResponseEntity<BooksResponse> getBooks(@RequestHeader("Authorization") String accessToken){
-        BooksResponse booksResponse = humanitiesService.booksExecute(accessToken);
+        BooksResponse booksResponse = humanitiesService.(accessToken);
         return new ResponseEntity<>(booksResponse, HttpStatus.OK);
     }
 

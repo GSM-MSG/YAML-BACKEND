@@ -20,7 +20,6 @@ public class Book {
     private String author;
     private String field;
     private String review;
-    private BookMaraton bookMaraton;
     @ManyToOne
     @JoinColumn(name = "humanities")
     private Humanities humanities;
