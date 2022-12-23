@@ -5,9 +5,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class CalculateTotalUtil {
 
-    private int score = 0;
 
     public int calculatePrize(int outSidePrize, boolean festival, boolean presentation) {
+        int score = 0;
         score = score + outSidePrize * 50;
         if(festival)
             score = score+50;
