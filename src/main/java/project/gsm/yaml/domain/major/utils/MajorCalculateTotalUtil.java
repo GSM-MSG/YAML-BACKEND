@@ -4,6 +4,8 @@ import org.springframework.stereotype.Component;
 import project.gsm.yaml.domain.major.presentation.dto.response.InsideContestResponse;
 import project.gsm.yaml.domain.major.presentation.dto.response.InsidePrizeResponse;
 
+import java.util.Optional;
+
 @Component
 public class MajorCalculateTotalUtil {
 
@@ -38,5 +40,12 @@ public class MajorCalculateTotalUtil {
             score = score +50;
 
         return Math.min(400, score);
+    }
+
+    public int calculateMajorClub(String majorClub) {
+        if(majorClub.isBlank())
+            return 0;
+
+        return 150;
     }
 }

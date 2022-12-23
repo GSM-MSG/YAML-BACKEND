@@ -38,7 +38,7 @@ public class Major {
     private Boolean deepMajorClub;
 
     //전공동아리
-    @Column(name = "major_club")
+    @Column(name = "major_club" )
     private String majorClub;
 
     //전공 / 자격증 항목
@@ -48,4 +48,8 @@ public class Major {
     @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "major")
     private User user;
 
+    @PrePersist
+    public void prePersist(){
+        this.majorClub = this.majorClub == null ? "" : this.majorClub;
+    }
 }
