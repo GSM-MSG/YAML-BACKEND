@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import project.gsm.yaml.domain.user.entity.User;
 
 import javax.persistence.*;
 
@@ -23,4 +24,7 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "humanities")
     private Humanities humanities;
+
+    @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "book")
+    private User user;
 }

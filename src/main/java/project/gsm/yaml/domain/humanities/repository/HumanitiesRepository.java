@@ -4,5 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import project.gsm.yaml.domain.humanities.entity.Humanities;
 
+@Repository
 public interface HumanitiesRepository extends JpaRepository<Humanities, Long> {
 }

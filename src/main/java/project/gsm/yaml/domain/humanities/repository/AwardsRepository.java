@@ -6,6 +6,7 @@ import project.gsm.yaml.domain.humanities.entity.Awards;
 
 import java.util.Optional;
 
+@Repository
 public interface AwardsRepository extends JpaRepository<Awards, Long> {
 
 }

@@ -4,10 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import project.gsm.yaml.domain.user.entity.User;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -20,4 +19,12 @@ public class Volunteer {
     private Long id;
     private String name;
     private Integer hour;
+
+    @ManyToOne
+    @JoinColumn(name = "humanities")
+    private Humanities humanities;
+
+    @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "volunteer")
+    private User user;
+
 }

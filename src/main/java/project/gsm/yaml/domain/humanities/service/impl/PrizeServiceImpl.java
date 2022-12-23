@@ -1,10 +1,8 @@
 package project.gsm.yaml.domain.humanities.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import project.gsm.yaml.domain.humanities.presentation.dto.response.AwardsResponse;
-import project.gsm.yaml.domain.humanities.presentation.dto.response.BookResponse;
-import project.gsm.yaml.domain.humanities.presentation.dto.response.BooksResponse;
-import project.gsm.yaml.domain.humanities.presentation.dto.response.PrizeResponse;
+import org.springframework.stereotype.Service;
+import project.gsm.yaml.domain.humanities.presentation.dto.response.*;
 import project.gsm.yaml.domain.humanities.service.PrizeService;
 import project.gsm.yaml.domain.humanities.utils.HumanitiesCaculateTotalUtil;
 import project.gsm.yaml.domain.user.entity.User;
@@ -13,6 +11,7 @@ import project.gsm.yaml.domain.user.utils.UserUtil;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 @RequiredArgsConstructor
 public class PrizeServiceImpl implements PrizeService {
     private final UserUtil userUtil;
