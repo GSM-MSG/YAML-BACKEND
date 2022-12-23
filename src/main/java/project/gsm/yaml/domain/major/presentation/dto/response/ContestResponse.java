@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 
 @Builder
-@AllArgsConstructor
 @RequiredArgsConstructor
 public class ContestResponse {
 

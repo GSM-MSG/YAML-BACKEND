@@ -9,7 +9,6 @@ import project.gsm.yaml.domain.major.entity.Certificate;
 import java.util.List;
 
 @Builder
-@AllArgsConstructor
 @RequiredArgsConstructor
 public class CertificateResponse {
 

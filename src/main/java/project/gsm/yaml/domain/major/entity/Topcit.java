@@ -20,6 +20,7 @@ public class Topcit {
     @GeneratedValue
     private Long id;
 
+    @Enumerated
     private TopcitScore score;
 
     private String fileURL;

@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 
 @Builder
-@AllArgsConstructor
 @RequiredArgsConstructor
 public class MajorClubResponse {
 

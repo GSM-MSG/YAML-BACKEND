@@ -1,10 +1,8 @@
 package project.gsm.yaml.domain.major.presentation.dto.response;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import project.gsm.yaml.domain.major.entity.OutsideAwards;
 
-@AllArgsConstructor
 @RequiredArgsConstructor
 public class SingleOutsidePrizeResponse {
     private final Long id;
