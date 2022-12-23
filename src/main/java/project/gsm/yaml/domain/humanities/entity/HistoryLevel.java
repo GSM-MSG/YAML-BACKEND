@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum KoreanHistoryRating {
+public enum HistoryLevel {
     FIRST(50),
     SECOND(50),
     THIRD(50),

@@ -28,11 +28,14 @@ public class Humanities {
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "humanities")
     private List<Volunteer> volunteers;
 
-    @Enumerated(EnumType.STRING)
-    private ChineseCharacter chineseCharacter;
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "humanities")
+    private List<HumanitiesCertificate> chineseCertificate;
 
     @Enumerated(EnumType.STRING)
-    private KoreanHistoryRating historyRating;
+    private ChineseLevel chineseLevel;
+
+    @Enumerated(EnumType.STRING)
+    private HistoryLevel historyLevel;
 
     @Enumerated(EnumType.STRING)
     private InnerSportsLeague sportsLeague;

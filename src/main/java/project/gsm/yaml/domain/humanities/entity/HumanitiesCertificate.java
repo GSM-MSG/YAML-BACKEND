@@ -4,25 +4,24 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import project.gsm.yaml.domain.user.entity.User;
 
 import javax.persistence.*;
+import java.util.logging.Level;
 
 @Entity
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Book {
+public class HumanitiesCertificate {
     @Id
     @GeneratedValue
     private Long id;
-    private String name;
-    private String author;
-    private String field;
-    private String review;
+    private Level level;
+    private String fileURL;
+    private Integer total;
+
     @ManyToOne
     @JoinColumn(name = "humanities")
     private Humanities humanities;
-
 }

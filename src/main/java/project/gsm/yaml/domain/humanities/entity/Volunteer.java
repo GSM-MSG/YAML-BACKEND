@@ -24,7 +24,4 @@ public class Volunteer {
     @JoinColumn(name = "humanities")
     private Humanities humanities;
 
-    @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "volunteer")
-    private User user;
-
 }

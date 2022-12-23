@@ -41,4 +41,8 @@ public class HumanitiesCaculateTotalUtil {
 
         return score;
     }
+
+    public int calculateChineseCertificate(int level){
+        score = 0;
+    }
 }
