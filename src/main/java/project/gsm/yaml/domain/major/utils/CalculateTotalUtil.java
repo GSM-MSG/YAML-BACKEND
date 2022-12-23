@@ -15,7 +15,7 @@ public class CalculateTotalUtil {
         if(presentation)
             score = score+50;
 
-        if(score >= 250)
+        if(score > 250)
             return 250;
 
         return score;
