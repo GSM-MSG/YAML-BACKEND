@@ -1,9 +1,9 @@
 package project.gsm.yaml.domain.major.enums;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+@Getter
 @RequiredArgsConstructor
 public enum TopcitScore {
     UPPER_240(100),
