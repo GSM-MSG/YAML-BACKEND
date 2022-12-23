@@ -6,9 +6,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import project.gsm.yaml.domain.major.presentation.dto.response.CertificateResponse;
 import project.gsm.yaml.domain.major.presentation.dto.response.ContestResponse;
 import project.gsm.yaml.domain.major.presentation.dto.response.MajorClubResponse;
 import project.gsm.yaml.domain.major.presentation.dto.response.PrizeResponse;
+import project.gsm.yaml.domain.major.service.CertificateService;
 import project.gsm.yaml.domain.major.service.ContestService;
 import project.gsm.yaml.domain.major.service.MajorClubService;
 import project.gsm.yaml.domain.major.service.PrizeService;
@@ -19,8 +21,8 @@ import project.gsm.yaml.domain.major.service.PrizeService;
 public class MajorController {
     private final PrizeService prizeService;
     private final ContestService contestService;
-
     private final MajorClubService majorClubService;
+    private final CertificateService certificateService;
 
     @GetMapping("/prize")
     public ResponseEntity<PrizeResponse> getPrize() {
@@ -38,5 +40,11 @@ public class MajorController {
     public ResponseEntity<MajorClubResponse> getMajorClub() {
         MajorClubResponse majorClubResponse = majorClubService.execute();
         return new ResponseEntity<>(majorClubResponse, HttpStatus.OK);
+    }
+
+    @GetMapping("certificate")
+    private ResponseEntity<CertificateResponse> getCertificate() {
+        CertificateResponse certificateResponse = certificateService.execute();
+        return new ResponseEntity<>(certificateResponse, HttpStatus.OK);
     }
 }
