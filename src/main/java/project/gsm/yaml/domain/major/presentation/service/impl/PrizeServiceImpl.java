@@ -6,7 +6,6 @@ import project.gsm.yaml.domain.major.presentation.dto.response.InsidePrizeRespon
 import project.gsm.yaml.domain.major.presentation.dto.response.PrizeResponse;
 import project.gsm.yaml.domain.major.presentation.dto.response.SingleOutsidePrizeResponse;
 import project.gsm.yaml.domain.major.presentation.service.PrizeService;
-import project.gsm.yaml.domain.user.entity.User;
 import project.gsm.yaml.domain.major.utils.CalculateTotalUtil;
 import project.gsm.yaml.domain.user.utils.UserUtil;
 
@@ -27,7 +26,7 @@ public class PrizeServiceImpl implements PrizeService {
                 .map(SingleOutsidePrizeResponse::new)
                 .collect(Collectors.toList());
         InsidePrizeResponse insidePrizeResponse = new InsidePrizeResponse(currentMajor);
-        int total = calculateTotalUtil.calculatePrize(outsidePrizeResponseList.size(), insidePrizeResponse);
+        int total = calculateTotalUtil.calculateMajorPrize(outsidePrizeResponseList.size(), insidePrizeResponse);
 
         return PrizeResponse.builder()
                 .outside(outsidePrizeResponseList)

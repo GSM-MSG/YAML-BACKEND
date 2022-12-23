@@ -7,7 +7,6 @@ import project.gsm.yaml.domain.major.presentation.dto.response.InsideContestResp
 import project.gsm.yaml.domain.major.presentation.dto.response.SingleOutsideContestResponse;
 import project.gsm.yaml.domain.major.presentation.service.ContestService;
 import project.gsm.yaml.domain.major.utils.CalculateTotalUtil;
-import project.gsm.yaml.domain.user.entity.User;
 import project.gsm.yaml.domain.user.utils.UserUtil;
 
 import java.util.List;
@@ -26,7 +25,7 @@ public class ContestServiceImpl implements ContestService {
                 .map(SingleOutsideContestResponse::new)
                 .collect(Collectors.toList());
         InsideContestResponse insideContestResponse = new InsideContestResponse(currentUserMajor);
-        int total = calculateTotalUtil.calculateContest(outsideContestResponseList.size(), currentUserMajor.getAfterSchool(), insideContestResponse);
+        int total = calculateTotalUtil.calculateMajorContest(outsideContestResponseList.size(), currentUserMajor.getAfterSchool(), insideContestResponse);
         return ContestResponse.builder()
                 .outside(outsideContestResponseList)
                 .inside(insideContestResponse)
