@@ -48,4 +48,8 @@ public class Major {
     @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "major")
     private User user;
 
+    @PrePersist
+    public void prePersist(){
+        this.majorClub = this.majorClub == null ? "" : this.majorClub;
+    }
 }

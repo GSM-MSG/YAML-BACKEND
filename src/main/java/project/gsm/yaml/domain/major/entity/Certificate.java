@@ -17,8 +17,7 @@ public class Certificate {
     @GeneratedValue
     private Long id;
     private String name;
-    private String startAt;
-    private String endAt;
+    private String fileURL;
     @ManyToOne
     @JoinColumn(name = "major")
     private Major major;
