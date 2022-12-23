@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.BooksResponse;
+import project.gsm.yaml.domain.humanities.presentation.dto.response.ChineseCertificatesResponse;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.PrizeResponse;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.VolunteersResponse;
 import project.gsm.yaml.domain.humanities.service.PrizeService;
@@ -34,6 +35,12 @@ public class HumanitiesController {
     public ResponseEntity<VolunteersResponse> getVolunteers(){
         VolunteersResponse volunteersResponse = humanitiesService.volunteersExcute();
         return new ResponseEntity<>(volunteersResponse, HttpStatus.OK);
+    }
+
+    @GetMapping("/chinese-certificate")
+    public ResponseEntity<ChineseCertificatesResponse> getChineseCertificate(){
+        ChineseCertificatesResponse chineseCertificatesResponse = humanitiesService.chineseCertificateExecute();
+        return new ResponseEntity<>(chineseCertificatesResponse, HttpStatus.OK);
     }
 
 }
