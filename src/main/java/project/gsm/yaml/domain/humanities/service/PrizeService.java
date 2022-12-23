@@ -4,7 +4,7 @@ import project.gsm.yaml.domain.humanities.presentation.dto.response.BooksRespons
 import project.gsm.yaml.domain.humanities.presentation.dto.response.PrizeResponse;
 
 public interface PrizeService {
-    PrizeResponse prizeExecute(String accessToken);
+    PrizeResponse prizeExecute();
 
-    BooksResponse booksExecute(String accessToken);
+    BooksResponse booksExecute();
 }

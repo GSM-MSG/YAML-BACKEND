@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url : jdbc:mysql://127.0.0.1:3306/yamldb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&useSSL=false&characterEncoding=UTF-8
+    username: root
+    password: jwjw0185**
+
+  jpa:
+    hibernate:
+      #?? create, update, none, create-drop, validate ??
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+logging:
+  level:
+    org:hibernate:SQL: DEBUG

@@ -19,7 +19,7 @@ public class PrizeServiceImpl implements PrizeService {
     private final UserUtil userUtil;
     private final CaculateTotalUtil caculateTotalUtil;
 
-    public PrizeResponse prizeExecute(String accessToken) {
+    public PrizeResponse prizeExecute() {
         List<AwardsResponse> awardsResponsesList = userUtil.currentUser().getHumanities().getAwardsList().stream()
                 .map(AwardsResponse::new)
                 .collect(Collectors.toList());
@@ -30,7 +30,7 @@ public class PrizeServiceImpl implements PrizeService {
                 .build();
     }
 
-    public BooksResponse booksExecute(String accessToken){
+    public BooksResponse booksExecute(){
         User user = userUtil.currentUser();
         List<BookResponse> bookResponseList = user.getHumanities().getBooks().stream()
                 .map(BookResponse::new)
