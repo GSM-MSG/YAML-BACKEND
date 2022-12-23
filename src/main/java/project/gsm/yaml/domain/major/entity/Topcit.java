@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import project.gsm.yaml.domain.major.enums.TopcitScore;
 
 import javax.persistence.*;
 
@@ -19,7 +20,7 @@ public class Topcit {
     @GeneratedValue
     private Long id;
 
-    private Integer score;
+    private TopcitScore Score;
 
     private String fileURL;
 
