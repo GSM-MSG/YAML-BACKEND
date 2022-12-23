@@ -16,9 +16,10 @@ public class OutsideContest {
     @Id
     @GeneratedValue
     private Long id;
+
     private String name;
-    private String startAt;
-    private String endAt;
+
+    private String fileUrl;
     @ManyToOne
     @JoinColumn(name = "major")
     private Major major;
