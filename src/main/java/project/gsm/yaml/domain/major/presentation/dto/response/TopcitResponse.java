@@ -7,9 +7,8 @@ import lombok.RequiredArgsConstructor;
 @Builder
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class MajorClubResponse {
-
-    private final String name;
-
+public class TopcitResponse {
+    private final Integer score;
+    private final String fileURL;
     private final Integer total;
 }

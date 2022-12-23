@@ -6,9 +6,9 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
-@RequiredArgsConstructor
-@AllArgsConstructor
 @Builder
+@AllArgsConstructor
+@RequiredArgsConstructor
 public class PrizeResponse {
 
     private final List<SingleOutsidePrizeResponse> outside;
