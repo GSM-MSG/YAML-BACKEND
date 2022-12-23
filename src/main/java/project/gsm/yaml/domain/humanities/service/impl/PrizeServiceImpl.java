@@ -1,10 +1,8 @@
 package project.gsm.yaml.domain.humanities.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import project.gsm.yaml.domain.humanities.presentation.dto.response.AwardsResponse;
-import project.gsm.yaml.domain.humanities.presentation.dto.response.BookResponse;
-import project.gsm.yaml.domain.humanities.presentation.dto.response.BooksResponse;
-import project.gsm.yaml.domain.humanities.presentation.dto.response.PrizeResponse;
+import org.springframework.stereotype.Service;
+import project.gsm.yaml.domain.humanities.presentation.dto.response.*;
 import project.gsm.yaml.domain.humanities.service.PrizeService;
 import project.gsm.yaml.domain.humanities.utils.HumanitiesCaculateTotalUtil;
 import project.gsm.yaml.domain.user.entity.User;
@@ -13,6 +11,7 @@ import project.gsm.yaml.domain.user.utils.UserUtil;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 @RequiredArgsConstructor
 public class PrizeServiceImpl implements PrizeService {
     private final UserUtil userUtil;
@@ -39,6 +38,20 @@ public class PrizeServiceImpl implements PrizeService {
         return BooksResponse.builder()
                 .list(bookResponseList)
                 .bookMarathon(user.getHumanities().getBookMarathon())
+                .total(total)
+                .build();
+    }
+
+    @Override
+    public VolunteersResponse volunteersExecute() {
+        User user = userUtil.currentUser();
+        List<VolunteerResponse> volunteerResponseList = user.getHumanities().getVolunteers().stream()
+                .map(VolunteerResponse::new)
+                .collect(Collectors.toList());
+        int hour = user.getHumanities().getVolunteers().stream().map(volunteer -> volunteer.getHour()).reduce(0, (a, b) -> a+b);
+        int total = caculateTotalUtil.calculateVounteers(hour);
+        return VolunteersResponse.builder()
+                .list(volunteerResponseList)
                 .total(total)
                 .build();
     }
