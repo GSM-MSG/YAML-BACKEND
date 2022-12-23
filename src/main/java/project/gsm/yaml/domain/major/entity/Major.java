@@ -38,7 +38,7 @@ public class Major {
     private Boolean deepMajorClub;
 
     //전공동아리
-    @Column(name = "major_club" )
+    @Column(name = "major_club")
     private String majorClub;
 
     //전공 / 자격증 항목
