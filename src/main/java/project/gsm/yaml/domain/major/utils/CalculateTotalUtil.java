@@ -1,18 +1,20 @@
 package project.gsm.yaml.domain.major.utils;
 
 import org.springframework.stereotype.Component;
+import project.gsm.yaml.domain.major.presentation.dto.response.InsideContestResponse;
+import project.gsm.yaml.domain.major.presentation.dto.response.InsidePrizeResponse;
 
 @Component
 public class CalculateTotalUtil {
 
 
-    public int calculatePrize(int outSidePrize, boolean festival, boolean presentation) {
+    public int calculatePrize(int outSidePrize, InsidePrizeResponse insidePrizeResponse) {
         int score = 0;
         score = outSidePrize * 50;
-        if(festival)
+        if(insidePrizeResponse.getGsmFestival())
             score = score+50;
 
-        if(presentation)
+        if(insidePrizeResponse.getMajorClubPresentation())
             score = score+50;
 
         if(score > 250)
@@ -21,7 +23,7 @@ public class CalculateTotalUtil {
         return score;
     }
 
-    public int calculateContest(int outsideContest, int afterSchool, Boolean festival, boolean presentation, boolean deepMajorClub){
+    public int calculateContest(int outsideContest, int afterSchool, InsideContestResponse insideContestResponse){
         int score = 0;
 
         if(outsideContest > 8)
@@ -34,13 +36,13 @@ public class CalculateTotalUtil {
         else
             score = score + afterSchool * 10;
 
-        if(festival)
+        if(insideContestResponse.getGsmFestival())
             score = score +50;
 
-        if(presentation)
+        if(insideContestResponse.getMajorClubPresentation())
             score = score +50;
 
-        if(deepMajorClub)
+        if(insideContestResponse.getDeepMajorClub())
             score = score +50;
 
         if(score > 400)

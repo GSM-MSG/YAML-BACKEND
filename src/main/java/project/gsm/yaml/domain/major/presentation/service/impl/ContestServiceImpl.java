@@ -25,8 +25,8 @@ public class ContestServiceImpl implements ContestService {
         List<SingleOutsideContestResponse> outsideContestResponseList = currentUserMajor.getOutsideContests().stream()
                 .map(SingleOutsideContestResponse::new)
                 .collect(Collectors.toList());
-        InsideContestResponse insideContestResponse = new InsideContestResponse(currentUserMajor.getGsmFestival(), currentUserMajor.getClubMajorPresentation(), currentUserMajor.getAfterSchool(), currentUserMajor.getDeepMajorClub());
-        int total = calculateTotalUtil.calculateContest(outsideContestResponseList.size(), currentUserMajor.getAfterSchool(), currentUserMajor.getGsmFestival(), currentUserMajor.getClubMajorPresentation(), currentUserMajor.getDeepMajorClub());
+        InsideContestResponse insideContestResponse = new InsideContestResponse(currentUserMajor);
+        int total = calculateTotalUtil.calculateContest(outsideContestResponseList.size(), currentUserMajor.getAfterSchool(), insideContestResponse);
         return ContestResponse.builder()
                 .outside(outsideContestResponseList)
                 .inside(insideContestResponse)

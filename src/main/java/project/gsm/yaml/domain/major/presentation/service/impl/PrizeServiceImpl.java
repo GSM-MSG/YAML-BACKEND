@@ -1,6 +1,7 @@
 package project.gsm.yaml.domain.major.presentation.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import project.gsm.yaml.domain.major.entity.Major;
 import project.gsm.yaml.domain.major.presentation.dto.response.InsidePrizeResponse;
 import project.gsm.yaml.domain.major.presentation.dto.response.PrizeResponse;
 import project.gsm.yaml.domain.major.presentation.dto.response.SingleOutsidePrizeResponse;
@@ -21,12 +22,13 @@ public class PrizeServiceImpl implements PrizeService {
 
     @Override
     public PrizeResponse execute() {
-        User currentUser = userUtil.currentUser();
-        List<SingleOutsidePrizeResponse> outsidePrizeResponseList = currentUser.getMajor().getOutsideAwardsList().stream()
+        Major currentMajor = userUtil.currentUser().getMajor();
+        List<SingleOutsidePrizeResponse> outsidePrizeResponseList = currentMajor.getOutsideAwardsList().stream()
                 .map(SingleOutsidePrizeResponse::new)
                 .collect(Collectors.toList());
-        InsidePrizeResponse insidePrizeResponse = new InsidePrizeResponse(currentUser.getMajor().getGsmFestival(), currentUser.getMajor().getClubMajorPresentation());
-        int total = calculateTotalUtil.calculatePrize(outsidePrizeResponseList.size(), insidePrizeResponse.getGsmFestival(), insidePrizeResponse.getMajorClubPresentation());
+        InsidePrizeResponse insidePrizeResponse = new InsidePrizeResponse(currentMajor);
+        int total = calculateTotalUtil.calculatePrize(outsidePrizeResponseList.size(), insidePrizeResponse);
+
         return PrizeResponse.builder()
                 .outside(outsidePrizeResponseList)
                 .inside(insidePrizeResponse)
