@@ -18,7 +18,7 @@ public class Major {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "sequence_id")
-    private Long id
+    private Long id;
 
     // 교외 수상 경력
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "major")

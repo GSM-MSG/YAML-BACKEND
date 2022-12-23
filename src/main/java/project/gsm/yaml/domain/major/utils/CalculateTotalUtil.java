@@ -1,4 +1,4 @@
-package project.gsm.yaml.domain.user.utils;
+package project.gsm.yaml.domain.major.utils;
 
 import org.springframework.stereotype.Component;
 

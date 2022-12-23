@@ -5,7 +5,7 @@ import project.gsm.yaml.domain.major.presentation.dto.response.PrizeResponse;
 import project.gsm.yaml.domain.major.presentation.dto.response.SingleOutsideResponse;
 import project.gsm.yaml.domain.major.presentation.service.PrizeService;
 import project.gsm.yaml.domain.user.entity.User;
-import project.gsm.yaml.domain.user.utils.CalculateTotalUtil;
+import project.gsm.yaml.domain.major.utils.CalculateTotalUtil;
 import project.gsm.yaml.domain.user.utils.UserUtil;
 
 import java.util.List;
