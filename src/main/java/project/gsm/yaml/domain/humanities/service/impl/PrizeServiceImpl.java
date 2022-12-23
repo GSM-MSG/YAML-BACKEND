@@ -41,4 +41,18 @@ public class PrizeServiceImpl implements PrizeService {
                 .total(total)
                 .build();
     }
+
+    @Override
+    public VolunteersResponse volunteersExcute() {
+        User user = userUtil.currentUser();
+        List<VolunteerResponse> volunteerResponseList = user.getHumanities().getVolunteers().stream()
+                .map(VolunteerResponse::new)
+                .collect(Collectors.toList());
+        int hour = user.getVolunteer().getHour();
+        int total = caculateTotalUtil.calculateVounteers(hour);
+        return VolunteersResponse.builder()
+                .list(volunteerResponseList)
+                .total(total)
+                .build();
+    }
 }
