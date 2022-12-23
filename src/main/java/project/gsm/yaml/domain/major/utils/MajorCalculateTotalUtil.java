@@ -48,4 +48,10 @@ public class MajorCalculateTotalUtil {
 
         return 150;
     }
+
+    public int calculateCertificate(int certificate) {
+        int score = 0;
+
+        return score += Math.min(5, certificate) * 20;
+    }
 }
