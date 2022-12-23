@@ -43,7 +43,7 @@ public class PrizeServiceImpl implements PrizeService {
     }
 
     @Override
-    public VolunteersResponse volunteersExcute() {
+    public VolunteersResponse volunteersExecute() {
         User user = userUtil.currentUser();
         List<VolunteerResponse> volunteerResponseList = user.getHumanities().getVolunteers().stream()
                 .map(VolunteerResponse::new)

@@ -9,5 +9,5 @@ public interface PrizeService {
 
     BooksResponse booksExecute();
 
-    VolunteersResponse volunteersExcute();
+    VolunteersResponse volunteersExecute();
 }

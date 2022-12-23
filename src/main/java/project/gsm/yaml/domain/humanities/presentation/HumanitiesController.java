@@ -32,7 +32,7 @@ public class HumanitiesController {
 
     @GetMapping("/volunteer")
     public ResponseEntity<VolunteersResponse> getVolunteers(){
-        VolunteersResponse volunteersResponse = humanitiesService.volunteersExcute();
+        VolunteersResponse volunteersResponse = humanitiesService.volunteersExecute();
         return new ResponseEntity<>(volunteersResponse, HttpStatus.OK);
     }
 
