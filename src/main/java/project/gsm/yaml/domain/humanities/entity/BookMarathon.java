@@ -9,7 +9,7 @@ public enum BookMarathon {
     TURTLE(40),
     CROCODILE(70),
     RABBIT(100),
-    NONE(100);
+    NONE(0);
 
     private Integer score;
 }

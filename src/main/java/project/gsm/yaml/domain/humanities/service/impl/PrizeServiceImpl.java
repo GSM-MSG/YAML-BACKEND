@@ -35,6 +35,12 @@ public class PrizeServiceImpl implements PrizeService {
         List<BookResponse> bookResponseList = user.getHumanities().getBooks().stream()
                 .map(BookResponse::new)
                 .collect(Collectors.toList());
-        int total = caculateTotalUtil.calculateBooks(, bookResponseList.size())
+        int marathon = user.getHumanities().getBookMarathon().getScore();
+        int total = caculateTotalUtil.calculateBooks(marathon, bookResponseList.size());
+        return BooksResponse.builder()
+                .list(bookResponseList)
+                .bookMarathon(user.getHumanities().getBookMarathon())
+                .total(total)
+                .build();
     }
 }

@@ -20,6 +20,10 @@ public class CaculateTotalUtil {
 
     public int calculateBooks(int bookMarathon, int readBook){
         score = 0;
+        score = score + bookMarathon;
+        score = score + readBook * 10;
+        if(score > 200)
+            return 200;
 
         return score;
     }
