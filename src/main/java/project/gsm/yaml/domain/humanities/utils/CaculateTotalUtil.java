@@ -14,4 +14,6 @@ public class CaculateTotalUtil {
 
         return score;
     }
+
+    public int calculateBooks(int )
 }

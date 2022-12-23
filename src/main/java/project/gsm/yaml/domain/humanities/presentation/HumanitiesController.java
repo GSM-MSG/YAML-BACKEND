@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import project.gsm.yaml.domain.humanities.presentation.dto.response.BooksResponse;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.PrizeResponse;
 import project.gsm.yaml.domain.humanities.service.PrizeService;
 
@@ -21,6 +22,12 @@ public class HumanitiesController {
     public ResponseEntity<PrizeResponse> getPrize(@RequestHeader("Authorization") String accessToken) {
         PrizeResponse prizeResponse = humanitiesService.prizeExecute(accessToken);
         return new ResponseEntity<>(prizeResponse, HttpStatus.OK);
+    }
+
+    @GetMapping("/books")
+    public ResponseEntity<BooksResponse> getBooks(@RequestHeader("Authorization") String accessToken){
+        BooksResponse booksResponse = humanitiesService.booksExecute(accessToken);
+        return new ResponseEntity<>(booksResponse, HttpStatus.OK);
     }
 
 }

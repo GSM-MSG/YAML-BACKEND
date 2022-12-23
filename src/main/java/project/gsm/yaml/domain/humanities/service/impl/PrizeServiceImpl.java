@@ -3,6 +3,8 @@ package project.gsm.yaml.domain.humanities.service.impl;
 import lombok.RequiredArgsConstructor;
 import project.gsm.yaml.domain.humanities.entity.Awards;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.AwardsResponse;
+import project.gsm.yaml.domain.humanities.presentation.dto.response.BookResponse;
+import project.gsm.yaml.domain.humanities.presentation.dto.response.BooksResponse;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.PrizeResponse;
 import project.gsm.yaml.domain.humanities.service.PrizeService;
 import project.gsm.yaml.domain.humanities.utils.CaculateTotalUtil;
@@ -26,5 +28,12 @@ public class PrizeServiceImpl implements PrizeService {
                 .list(awardsResponsesList)
                 .total(total)
                 .build();
+    }
+
+    public BooksResponse booksExecute(String accessToken){
+        List<BookResponse> bookResponseList = userUtil.currentUser().getHumanities().getBooks().stream()
+                .map(BookResponse::new)
+                .collect(Collectors.toList());
+        int total = caculateTotalUtil.
     }
 }
