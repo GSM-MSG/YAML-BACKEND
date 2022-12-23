@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import project.gsm.yaml.domain.user.entity.User;
-import project.gsm.yaml.domain.user.exception.exceptioncollection.UserNotFoundException;
 import project.gsm.yaml.domain.user.repository.UserRepository;
 
 @Component
