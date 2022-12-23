@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import project.gsm.yaml.domain.user.entity.User;
 
 import javax.persistence.*;
 import java.util.List;
@@ -35,4 +36,7 @@ public class Humanities {
 
     @Enumerated(EnumType.STRING)
     private SchoolSportsCompetition schoolSportsCompetition;
+
+    @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "user")
+    private User user;
 }
