@@ -1,7 +1,6 @@
 package project.gsm.yaml.domain.major.presentation.dto.response;
 
 import lombok.RequiredArgsConstructor;
-import project.gsm.yaml.domain.major.entity.OutsideAwards;
 import project.gsm.yaml.domain.major.entity.OutsideContest;
 
 @RequiredArgsConstructor

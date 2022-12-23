@@ -1,6 +1,7 @@
 package project.gsm.yaml.domain.major.utils;
 
 import org.springframework.stereotype.Component;
+import project.gsm.yaml.domain.major.enums.TopcitScore;
 import project.gsm.yaml.domain.major.presentation.dto.response.InsideContestResponse;
 import project.gsm.yaml.domain.major.presentation.dto.response.InsidePrizeResponse;
 
@@ -53,5 +54,9 @@ public class MajorCalculateTotalUtil {
         int score = 0;
 
         return score += Math.min(5, certificate) * 20;
+    }
+
+    public int calculateTopcit(TopcitScore topcitScore) {
+        return topcitScore.getScore();
     }
 }
