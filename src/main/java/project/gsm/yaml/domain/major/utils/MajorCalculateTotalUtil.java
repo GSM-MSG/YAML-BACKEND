@@ -5,7 +5,7 @@ import project.gsm.yaml.domain.major.presentation.dto.response.InsideContestResp
 import project.gsm.yaml.domain.major.presentation.dto.response.InsidePrizeResponse;
 
 @Component
-public class CalculateTotalUtil {
+public class MajorCalculateTotalUtil {
 
 
     public int calculateMajorPrize(int outSidePrize, InsidePrizeResponse insidePrizeResponse) {
@@ -17,24 +17,16 @@ public class CalculateTotalUtil {
         if(insidePrizeResponse.getMajorClubPresentation())
             score = score+50;
 
-        if(score > 250)
-            return 250;
-
-        return score;
+        return Math.min(250, score);
     }
 
     public int calculateMajorContest(int outsideContest, int afterSchool, InsideContestResponse insideContestResponse){
         int score = 0;
 
-        if(outsideContest > 8)
-            score = 200;
-        else
-            score = outsideContest * 25;
+        score += Math.min(8, outsideContest) * 25;
 
-        if(afterSchool > 5)
-            score = score + 50;
-        else
-            score = score + afterSchool * 10;
+        score += Math.min(5, afterSchool) * 10;
+
 
         if(insideContestResponse.getGsmFestival())
             score = score +50;
@@ -45,9 +37,6 @@ public class CalculateTotalUtil {
         if(insideContestResponse.getDeepMajorClub())
             score = score +50;
 
-        if(score > 400)
-            return 400;
-
-        return score;
+        return Math.min(400, score);
     }
 }
