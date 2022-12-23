@@ -19,14 +19,14 @@ public class HumanitiesController {
     private final PrizeService humanitiesService;
 
     @GetMapping("/prize")
-    public ResponseEntity<PrizeResponse> getPrize(@RequestHeader("Authorization") String accessToken) {
-        PrizeResponse prizeResponse = humanitiesService.prizeExecute(accessToken);
+    public ResponseEntity<PrizeResponse> getPrize() {
+        PrizeResponse prizeResponse = humanitiesService.prizeExecute();
         return new ResponseEntity<>(prizeResponse, HttpStatus.OK);
     }
 
     @GetMapping("/books")
-    public ResponseEntity<BooksResponse> getBooks(@RequestHeader("Authorization") String accessToken){
-        BooksResponse booksResponse = humanitiesService.booksExecute(accessToken);
+    public ResponseEntity<BooksResponse> getBooks(){
+        BooksResponse booksResponse = humanitiesService.booksExecute();
         return new ResponseEntity<>(booksResponse, HttpStatus.OK);
     }
 

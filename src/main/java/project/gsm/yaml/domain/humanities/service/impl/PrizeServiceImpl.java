@@ -1,13 +1,12 @@
 package project.gsm.yaml.domain.humanities.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import project.gsm.yaml.domain.humanities.entity.BookMarathon;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.AwardsResponse;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.BookResponse;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.BooksResponse;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.PrizeResponse;
 import project.gsm.yaml.domain.humanities.service.PrizeService;
-import project.gsm.yaml.domain.humanities.utils.CaculateTotalUtil;
+import project.gsm.yaml.domain.humanities.utils.HumanitiesCaculateTotalUtil;
 import project.gsm.yaml.domain.user.entity.User;
 import project.gsm.yaml.domain.user.utils.UserUtil;
 
@@ -17,7 +16,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class PrizeServiceImpl implements PrizeService {
     private final UserUtil userUtil;
-    private final CaculateTotalUtil caculateTotalUtil;
+    private final HumanitiesCaculateTotalUtil caculateTotalUtil;
 
     public PrizeResponse prizeExecute() {
         List<AwardsResponse> awardsResponsesList = userUtil.currentUser().getHumanities().getAwardsList().stream()
