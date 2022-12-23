@@ -48,7 +48,7 @@ public class PrizeServiceImpl implements PrizeService {
         List<VolunteerResponse> volunteerResponseList = user.getHumanities().getVolunteers().stream()
                 .map(VolunteerResponse::new)
                 .collect(Collectors.toList());
-        int hour = user.getVolunteer().getHour();
+        int hour = user.getHumanities().getVolunteers().stream().map(volunteer -> volunteer.getHour()).reduce(0, (a, b) -> a+b);
         int total = caculateTotalUtil.calculateVounteers(hour);
         return VolunteersResponse.builder()
                 .list(volunteerResponseList)

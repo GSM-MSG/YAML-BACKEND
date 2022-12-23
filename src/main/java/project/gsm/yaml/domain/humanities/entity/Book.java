@@ -24,7 +24,4 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "humanities")
     private Humanities humanities;
-
-    @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "book")
-    private User user;
 }

@@ -36,8 +36,8 @@ public class HumanitiesCaculateTotalUtil {
         score = 0;
         score = score + hour * 10;
 
-        if(score > 300)
-            return 300;
+        if(score > 150)
+            return 150;
 
         return score;
     }
