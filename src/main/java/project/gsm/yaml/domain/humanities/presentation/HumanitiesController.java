@@ -19,7 +19,7 @@ public class HumanitiesController {
 
     @GetMapping("/prize")
     public ResponseEntity<PrizeResponse> getPrize(@RequestHeader("Authorization") String accessToken) {
-        PrizeResponse prizeResponse = humanitiesService.execute(accessToken);
+        PrizeResponse prizeResponse = humanitiesService.prizeExecute(accessToken);
         return new ResponseEntity<>(prizeResponse, HttpStatus.OK);
     }
 
