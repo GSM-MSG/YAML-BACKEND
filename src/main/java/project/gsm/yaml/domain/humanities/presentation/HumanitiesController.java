@@ -88,4 +88,10 @@ public class HumanitiesController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @PatchMapping("/volunteer/{id}")
+    public ResponseEntity<Void> patchVolunteer(@PathVariable Long id, @RequestBody @Valid ModifyVolunteerRequest modifyVolunteerRequest){
+        volunteerService.patchVolunteerExecute(modifyVolunteerRequest);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 }
