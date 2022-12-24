@@ -101,4 +101,10 @@ public class MajorController {
         certificateService.patchCertificate(id, modifyCertificateRequest);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @PatchMapping("/topcit")
+    public ResponseEntity<Void> patchTopcit(@RequestBody @Valid ModifyTopcitRequest modifyTopcitRequest) {
+        topcitService.patchTopcit(modifyTopcitRequest);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
