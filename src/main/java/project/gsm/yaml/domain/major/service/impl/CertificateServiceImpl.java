@@ -54,4 +54,9 @@ public class CertificateServiceImpl implements CertificateService {
         Certificate certificate = certificateRepository.findById(id).orElseThrow(() -> new CertificateNotFoundException("자격증을 찾을 수 없습니다"));
         certificate.update(modifyCertificateRequest.getName(), modifyCertificateRequest.getFileURL());
     }
+
+    @Override
+    public void deleteCertificate(Long id) {
+        certificateRepository.deleteById(id);
+    }
 }
