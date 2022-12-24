@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import project.gsm.yaml.domain.humanities.exceptions.PrizeNotFoundException;
 import project.gsm.yaml.domain.major.exceptions.AwardsNotFoundException;
 import project.gsm.yaml.domain.major.exceptions.ContestNotFoundException;
 import project.gsm.yaml.domain.user.exception.exceptioncollection.BlackListAlreadyExistException;
