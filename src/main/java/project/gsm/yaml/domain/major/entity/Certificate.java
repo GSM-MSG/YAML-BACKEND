@@ -21,4 +21,9 @@ public class Certificate {
     @ManyToOne
     @JoinColumn(name = "major")
     private Major major;
+
+    public void update(String name, String fileURL) {
+        this.name = name;
+        this.fileURL = fileURL;
+    }
 }

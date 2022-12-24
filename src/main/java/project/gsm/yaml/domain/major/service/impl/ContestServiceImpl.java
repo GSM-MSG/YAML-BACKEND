@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import project.gsm.yaml.domain.major.entity.Major;
 import project.gsm.yaml.domain.major.entity.OutsideContest;
 import project.gsm.yaml.domain.major.exceptions.ContestNotFoundException;
+import project.gsm.yaml.domain.major.presentation.dto.request.ModifyInsideContestRequest;
 import project.gsm.yaml.domain.major.presentation.dto.request.ModifyOutsideContestRequest;
 import project.gsm.yaml.domain.major.presentation.dto.request.OutsideContestRequest;
 import project.gsm.yaml.domain.major.presentation.dto.response.ContestResponse;
@@ -56,5 +57,11 @@ public class ContestServiceImpl implements ContestService {
     public void patchOutsideContest(Long id, ModifyOutsideContestRequest modifyOutsideContestRequest) {
         OutsideContest outsideContest = outsideContestRepository.findById(id).orElseThrow(() -> new ContestNotFoundException("교육, 대회 참가이력을 찾을 수 없습니다"));
         outsideContest.update(modifyOutsideContestRequest.getName(), modifyOutsideContestRequest.getFileURL());
+    }
+
+    @Override
+    public void patchInsideContest(ModifyInsideContestRequest modifyInsideContestRequest) {
+        Major major = userUtil.currentUser().getMajor();
+            major.updateContest(modifyInsideContestRequest.getAttendGsmFestival(), modifyInsideContestRequest.getAttendClubMajorPresentation());
     }
 }

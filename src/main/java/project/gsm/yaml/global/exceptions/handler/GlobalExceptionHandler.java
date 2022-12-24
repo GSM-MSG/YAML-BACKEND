@@ -8,6 +8,7 @@ import project.gsm.yaml.domain.humanities.exceptions.BooksNotFoundException;
 import project.gsm.yaml.domain.humanities.exceptions.PrizeNotFoundException;
 import project.gsm.yaml.domain.humanities.exceptions.VolunteerNotFoundException;
 import project.gsm.yaml.domain.major.exceptions.AwardsNotFoundException;
+import project.gsm.yaml.domain.major.exceptions.CertificateNotFoundException;
 import project.gsm.yaml.domain.major.exceptions.ContestNotFoundException;
 import project.gsm.yaml.domain.user.exception.exceptioncollection.BlackListAlreadyExistException;
 import project.gsm.yaml.domain.user.exception.exceptioncollection.RefreshTokenNotFoundException;
@@ -68,6 +69,12 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(VolunteerNotFoundException.class)
     public ResponseEntity<ErrorResponse> VolunteerNotFoundException(VolunteerNotFoundException exception) {
+    ErrorResponse errorResponse = new ErrorResponse(exception.getErrorCode().getMessage(), exception.getErrorCode().getStatus());
+        return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.valueOf(exception.getErrorCode().getStatus()));
+    }
+    
+    @ExceptionHandler(CertificateNotFoundException.class)
+    public ResponseEntity<ErrorResponse> CertificateNotFoundException(CertificateNotFoundException exception) {
         ErrorResponse errorResponse = new ErrorResponse(exception.getErrorCode().getMessage(), exception.getErrorCode().getStatus());
         return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.valueOf(exception.getErrorCode().getStatus()));
     }

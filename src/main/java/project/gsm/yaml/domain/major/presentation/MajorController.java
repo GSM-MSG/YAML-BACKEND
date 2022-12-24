@@ -33,7 +33,7 @@ public class MajorController {
 
     @GetMapping("/major-club")
     public ResponseEntity<MajorClubResponse> getMajorClub() {
-        MajorClubResponse majorClubResponse = majorClubService.execute();
+        MajorClubResponse majorClubResponse = majorClubService.getMajorClub();
         return new ResponseEntity<>(majorClubResponse, HttpStatus.OK);
     }
 
@@ -81,6 +81,24 @@ public class MajorController {
     @PatchMapping("/outside-contest/{id}")
     public ResponseEntity<Void> patchOutsideContest(@PathVariable Long id, @RequestBody @Valid ModifyOutsideContestRequest modifyOutsideContestRequest) {
         contestService.patchOutsideContest(id, modifyOutsideContestRequest);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PatchMapping("/inside-contest")
+    public ResponseEntity<Void> patchInsideContest(@RequestBody @Valid ModifyInsideContestRequest modifyInsideContestRequest) {
+        contestService.patchInsideContest(modifyInsideContestRequest);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PatchMapping("/major-club")
+    public ResponseEntity<Void> patchMajorClub(@RequestBody @Valid ModifyMajorClubRequest modifyMajorClubRequest) {
+        majorClubService.patchMajorClub(modifyMajorClubRequest);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PatchMapping("/certificate/{id}")
+    public ResponseEntity<Void> patchCertificate(@PathVariable Long id, @RequestBody @Valid ModifyCertificateRequest modifyCertificateRequest) {
+        certificateService.patchCertificate(id, modifyCertificateRequest);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

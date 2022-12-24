@@ -61,8 +61,17 @@ public class Major {
         this.majorClub = this.majorClub == null ? "" : this.majorClub;
     }
 
-    public void update(Boolean gsmFestival, Boolean clubMajorPresentation) {
+    public void updatePrize(Boolean gsmFestival, Boolean clubMajorPresentation) {
         this.gsmFestival = gsmFestival;
         this.clubMajorPresentation = clubMajorPresentation;
+    }
+
+    public void updateContest(Boolean attendGsmFestival, Boolean attendClubMajorPresentation) {
+        this.attendGsmFestival = attendGsmFestival;
+        this.attendClubMajorPresentation = attendClubMajorPresentation;
+    }
+
+    public void updateMajorClub(String majorClub) {
+        this.majorClub = majorClub;
     }
 }
