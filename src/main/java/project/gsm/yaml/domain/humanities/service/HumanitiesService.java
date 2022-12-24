@@ -1,9 +1,6 @@
 package project.gsm.yaml.domain.humanities.service;
 
-import project.gsm.yaml.domain.humanities.presentation.dto.response.BooksResponse;
-import project.gsm.yaml.domain.humanities.presentation.dto.response.ChineseCertificateResponse;
-import project.gsm.yaml.domain.humanities.presentation.dto.response.PrizeResponse;
-import project.gsm.yaml.domain.humanities.presentation.dto.response.VolunteersResponse;
+import project.gsm.yaml.domain.humanities.presentation.dto.response.*;
 
 public interface HumanitiesService {
     PrizeResponse prizeExecute();
@@ -12,5 +9,5 @@ public interface HumanitiesService {
 
     VolunteersResponse volunteersExcute();
 
-    ChineseCertificateResponse chineseCertificateExecute();
+    HumanitiesCertificateResponse chineseCertificateExecute();
 }

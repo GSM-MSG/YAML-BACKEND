@@ -59,14 +59,21 @@ public class HumanitiesServiceImpl implements HumanitiesService {
     }
 
     @Override
-    public ChineseCertificateResponse chineseCertificateExecute(){
+    public HumanitiesCertificateResponse chineseCertificateExecute(){
         User user = userUtil.currentUser();
-        String fileURL = user.getHumanities().getChineseCertificate().stream().map(chineseCertificate -> chineseCertificate.getFileURL()).reduce(0, (a, b) -> a + b);
-        int total = caculateTotalUtil.
-        return ChineseCertificateResponse.builder()
-                .level(user.getHumanities().getLevel())
-                .fileURL(fileURL)
-                .total()
+        List<ChineseCertificateResponse> chineseCertificateResponseList = user.getHumanities().getChineseCertificate().stream()
+                .map(ChineseCertificateResponse::new)
+                .collect(Collectors.toList());
+        List<HistoryCertificateResponse> historyCertificateResponseList = user.getHumanities().getHistoryCertificates().stream()
+                .map(HistoryCertificateResponse::new)
+                .collect(Collectors.toList());
+        int Chinese = user.getHumanities().getChineseLevel().getScore();
+        int History = user.getHumanities().getHistoryLevel().getScore();
+        int total = caculateTotalUtil.calculateHumanitiesCertificate(Chinese, History);
+        return HumanitiesCertificateResponse.builder()
+                .chinese(chineseCertificateResponseList)
+                .history(historyCertificateResponseList)
+                .total(total)
                 .build();
     }
 }

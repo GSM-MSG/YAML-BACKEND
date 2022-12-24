@@ -42,7 +42,10 @@ public class HumanitiesCaculateTotalUtil {
         return score;
     }
 
-    public int calculateChineseCertificate(int level){
+    public int calculateHumanitiesCertificate(int chinese, int history){
         score = 0;
+        score += chinese;
+        score += history;
+        return score;
     }
 }

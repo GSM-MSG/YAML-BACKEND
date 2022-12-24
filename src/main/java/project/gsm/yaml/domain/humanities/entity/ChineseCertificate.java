@@ -6,20 +6,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.logging.Level;
 
 @Entity
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class HumanitiesCertificate {
+public class ChineseCertificate {
     @Id
     @GeneratedValue
     private Long id;
-    private Level level;
+    private ChineseLevel level;
     private String fileURL;
-    private Integer total;
 
     @ManyToOne
     @JoinColumn(name = "humanities")

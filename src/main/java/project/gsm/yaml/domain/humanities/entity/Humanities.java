@@ -29,7 +29,10 @@ public class Humanities {
     private List<Volunteer> volunteers;
 
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "humanities")
-    private List<HumanitiesCertificate> chineseCertificate;
+    private List<ChineseCertificate> chineseCertificate;
+
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "humanities")
+    private List<HistoryCertificate> historyCertificates;
 
     @Enumerated(EnumType.STRING)
     private ChineseLevel chineseLevel;
