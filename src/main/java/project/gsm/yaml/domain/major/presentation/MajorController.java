@@ -77,4 +77,10 @@ public class MajorController {
         prizeService.patchInsidePrize(modifyInsidePrizeRequest);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @PatchMapping("/outside-contest/{id}")
+    public ResponseEntity<Void> patchOutsideContest(@PathVariable Long id, @RequestBody @Valid ModifyOutsideContestRequest modifyOutsideContestRequest) {
+        contestService.patchOutsideContest(id, modifyOutsideContestRequest);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
