@@ -35,12 +35,6 @@ public class Humanities {
     private HistoryCertificate historyCertificates;
 
     @Enumerated(EnumType.STRING)
-    private ChineseLevel chineseLevel;
-
-    @Enumerated(EnumType.STRING)
-    private HistoryLevel historyLevel;
-
-    @Enumerated(EnumType.STRING)
     private InnerSportsLeague sportsLeague;
 
     @Enumerated(EnumType.STRING)
