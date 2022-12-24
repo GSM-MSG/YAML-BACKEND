@@ -6,10 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import project.gsm.yaml.domain.humanities.presentation.dto.response.BooksResponse;
-import project.gsm.yaml.domain.humanities.presentation.dto.response.ChineseCertificateResponse;
-import project.gsm.yaml.domain.humanities.presentation.dto.response.PrizeResponse;
-import project.gsm.yaml.domain.humanities.presentation.dto.response.VolunteersResponse;
+import project.gsm.yaml.domain.humanities.presentation.dto.response.*;
 import project.gsm.yaml.domain.humanities.service.HumanitiesService;
 
 @RestController
@@ -37,10 +34,10 @@ public class HumanitiesController {
         return new ResponseEntity<>(volunteersResponse, HttpStatus.OK);
     }
 
-    @GetMapping("/chinese-certificate")
-    public ResponseEntity<ChineseCertificateResponse> getChineseCertificate(){
-        ChineseCertificateResponse chineseCertificatesResponse = humanitiesService.chineseCertificateExecute();
-        return new ResponseEntity<>(chineseCertificatesResponse, HttpStatus.OK);
+    @GetMapping("/certificate")
+    public ResponseEntity<HumanitiesCertificateResponse> getChineseCertificate(){
+        HumanitiesCertificateResponse humanitiesCertificateResponse = humanitiesService.chineseCertificateExecute();
+        return new ResponseEntity<>(humanitiesCertificateResponse, HttpStatus.OK);
     }
 
 }
