@@ -40,7 +40,7 @@ public class MajorController {
 
     @GetMapping("/certificate")
     public ResponseEntity<CertificateResponse> getCertificate() {
-        CertificateResponse certificateResponse = certificateService.execute();
+        CertificateResponse certificateResponse = certificateService.getCertificate();
         return new ResponseEntity<>(certificateResponse, HttpStatus.OK);
     }
     @GetMapping("/topcit")

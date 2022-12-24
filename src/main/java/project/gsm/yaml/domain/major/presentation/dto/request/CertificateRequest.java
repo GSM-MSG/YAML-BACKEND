@@ -1,9 +1,9 @@
 package project.gsm.yaml.domain.major.presentation.dto.request;
 
-import lombok.Builder;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-@Builder
+@Getter
 @RequiredArgsConstructor
 public class CertificateRequest {
     private final String name;
