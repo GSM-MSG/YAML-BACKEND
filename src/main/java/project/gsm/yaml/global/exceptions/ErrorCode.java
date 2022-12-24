@@ -15,7 +15,8 @@ public enum ErrorCode {
     CONTEST_NOT_FOUND("교육, 대회 참가이력을 찾을 수 없습니다", 404),
     CERTIFICATE_NOT_FOUND("자격증을 찾을 수 없습니다", 404),
     BLACK_LIST_ALREADY_EXIST("블랙리스트에 이미 존재합니다", 409),
-    BOOK_NOT_FOUND("독서활동 이력을 찾을 수 없습니다.", 404);
+    BOOK_NOT_FOUND("독서활동 이력을 찾을 수 없습니다.", 404),
+    VOLUNTEER_NOT_FOUND("봉사활동 이력을 찾을 수 없습니다.", 404);
 
     private final String message;
     private final int status;

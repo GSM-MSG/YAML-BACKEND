@@ -3,6 +3,8 @@ package project.gsm.yaml.domain.humanities.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import project.gsm.yaml.domain.humanities.entity.Volunteer;
+import project.gsm.yaml.domain.humanities.exceptions.VolunteerNotFoundException;
+import project.gsm.yaml.domain.humanities.presentation.dto.request.ModifyVolunteerRequest;
 import project.gsm.yaml.domain.humanities.presentation.dto.request.VolunteerRequest;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.VolunteerResponse;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.VolunteersResponse;
@@ -44,5 +46,12 @@ public class VolunteerServiceImpl implements VolunteerService {
                 .time(volunteerRequest.getTime())
                 .build();
         volunteerRepository.save(volunteer);
+    }
+
+    @Override
+    public void patchVolunteerExecute(Long id, ModifyVolunteerRequest modifyVolunteerRequest){
+        Volunteer volunteer = volunteerRepository.findById(id)
+                .orElseThrow(()-> new VolunteerNotFoundException("봉사활동 이력을 찾을 수 없습니다."));
+        volunteer.update(modifyVolunteerRequest.getName(), modifyVolunteerRequest.getTime());
     }
 }
