@@ -27,7 +27,7 @@ public class MajorController {
 
     @GetMapping("/contest")
     public ResponseEntity<ContestResponse> getContest() {
-        ContestResponse contestResponse = contestService.execute();
+        ContestResponse contestResponse = contestService.getContest();
         return new ResponseEntity<>(contestResponse, HttpStatus.OK);
     }
 
