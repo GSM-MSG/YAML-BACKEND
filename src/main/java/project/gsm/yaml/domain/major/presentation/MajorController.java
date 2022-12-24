@@ -95,4 +95,10 @@ public class MajorController {
         majorClubService.patchMajorClub(modifyMajorClubRequest);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @PatchMapping("/certificate/{id}")
+    public ResponseEntity<Void> patchCertificate(@PathVariable Long id, @RequestBody @Valid ModifyCertificateRequest modifyCertificateRequest) {
+        certificateService.patchCertificate(id, modifyCertificateRequest);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
