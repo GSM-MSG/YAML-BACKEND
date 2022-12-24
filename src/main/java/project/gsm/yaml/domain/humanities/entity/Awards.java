@@ -25,4 +25,9 @@ public class Awards {
     @ManyToOne
     @JoinColumn(name = "humanities")
     private Humanities humanities;
+
+    public void update(String name, String fileUrl) {
+        this.name = name;
+        this.fileUrl = fileUrl;
+    }
 }

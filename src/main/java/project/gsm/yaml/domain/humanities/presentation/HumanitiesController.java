@@ -75,7 +75,7 @@ public class HumanitiesController {
 
     @PostMapping("/prize/{id}")
     public ResponseEntity<Void> patchPrize(@PathVariable Long id, @RequestBody @Valid ModifyPrizeRequest modifyPrizeRequest){
-        volunteerService.patchPrizeExecute(id, modifyPrizeRequest);
+        prizeService.patchPrizeExecute(id, modifyPrizeRequest);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import project.gsm.yaml.domain.humanities.exceptions.PrizeNotFoundException;
 import project.gsm.yaml.domain.user.exception.exceptioncollection.BlackListAlreadyExistException;
 import project.gsm.yaml.domain.user.exception.exceptioncollection.RefreshTokenNotFoundException;
 import project.gsm.yaml.domain.user.exception.exceptioncollection.UserNotFoundException;

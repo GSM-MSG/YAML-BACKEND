@@ -2,7 +2,6 @@ package project.gsm.yaml.domain.humanities.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import project.gsm.yaml.domain.humanities.entity.Humanities;
 import project.gsm.yaml.domain.humanities.entity.Volunteer;
 import project.gsm.yaml.domain.humanities.presentation.dto.request.VolunteerRequest;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.VolunteerResponse;

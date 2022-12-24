@@ -11,7 +11,13 @@ public enum ErrorCode {
     TOKEN_NOT_VALID("토큰이 유효하지 않습니다", 401),
     REFRESH_TOKEN_NOT_FOUND("리프레시 토큰을 찾을 수 없습니다", 404),
     USER_NOT_FOUND("유저를 찾을 수 없습니다", 404),
-    BLACK_LIST_ALREADY_EXIST("블랙리스트에 이미 존재합니다", 409);
+    BLACK_LIST_ALREADY_EXIST("블랙리스트에 이미 존재합니다", 409),
+    PRIZE_NOT_FOUND("수상경력을 찾을 수 없습니다.", 404),
+    BOOK_NOT_FOUND("독서활동 이력을 찾을 수 없습니다.", 404),
+    BOOK_MARATHON_NOT_FOUND("독서마라톤 이력을 찾을 수 없습니다.", 404),
+    VOLUNTEER_NOT_FOUND("봉사활동 이력을 찾을 수 없습니다.", 404),
+    CERTIFICATE_NOT_FOUND("자격증 이력을 찾을 수 없습니다.", 404),
+    SPORTS_NOT_FOUND("체육활동 이력을 찾을 수 없습니다.", 404);
 
     private final String message;
     private final int status;
