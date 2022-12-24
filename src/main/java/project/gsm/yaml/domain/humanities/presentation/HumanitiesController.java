@@ -35,9 +35,15 @@ public class HumanitiesController {
     }
 
     @GetMapping("/certificate")
-    public ResponseEntity<HumanitiesCertificateResponse> getChineseCertificate(){
-        HumanitiesCertificateResponse humanitiesCertificateResponse = humanitiesService.chineseCertificateExecute();
+    public ResponseEntity<HumanitiesCertificateResponse> getHumanitiesCertificate(){
+        HumanitiesCertificateResponse humanitiesCertificateResponse = humanitiesService.humanitiesCertificateExecute();
         return new ResponseEntity<>(humanitiesCertificateResponse, HttpStatus.OK);
+    }
+
+    @GetMapping("/sports")
+    public ResponseEntity<SportsResponse> getSports(){
+        SportsResponse sportsResponse = humanitiesService.sportsExecute();
+        return new ResponseEntity<>(sportsResponse, HttpStatus.OK);
     }
 
 }

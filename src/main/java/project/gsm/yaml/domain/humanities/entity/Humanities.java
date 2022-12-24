@@ -34,6 +34,9 @@ public class Humanities {
     @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "humanities")
     private HistoryCertificate historyCertificates;
 
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "humanities")
+    private Sports sports;
+
     @Enumerated(EnumType.STRING)
     private InnerSportsLeague sportsLeague;
 

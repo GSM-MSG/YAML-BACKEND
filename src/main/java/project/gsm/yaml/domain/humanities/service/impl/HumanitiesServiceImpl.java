@@ -3,6 +3,7 @@ package project.gsm.yaml.domain.humanities.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import project.gsm.yaml.domain.humanities.entity.Humanities;
+import project.gsm.yaml.domain.humanities.entity.Sports;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.*;
 import project.gsm.yaml.domain.humanities.service.HumanitiesService;
 import project.gsm.yaml.domain.humanities.utils.HumanitiesCaculateTotalUtil;
@@ -60,17 +61,31 @@ public class HumanitiesServiceImpl implements HumanitiesService {
     }
 
     @Override
-    public HumanitiesCertificateResponse chineseCertificateExecute(){
+    public HumanitiesCertificateResponse humanitiesCertificateExecute(){
         Humanities user = userUtil.currentUser().getHumanities();
         ChineseCertificateResponse chineseCertificate = new ChineseCertificateResponse(user.getChineseCertificate());
         HistoryCertificateResponse historyCertificate = new HistoryCertificateResponse(user.getHistoryCertificates());
-        int chinese = user.getChineseLevel().getScore();
-        int history = user.getHistoryLevel().getScore();
+        int chinese = user.getChineseCertificate().getLevel().getScore();
+        int history = user.getHistoryCertificates().getLevel().getScore();
         int total = caculateTotalUtil.calculateHumanitiesCertificate(chinese, history);
         return HumanitiesCertificateResponse.builder()
                 .chinese(chineseCertificate)
                 .history(historyCertificate)
                 .total(total)
+                .build();
+    }
+
+    @Override
+    public SportsResponse sportsExecute(){
+        Sports sports = userUtil.currentUser().getHumanities().getSports();
+        int marathonScore = sports.getMarathon().getScore();
+        int leagueScore = sports.getInnerLeague().getScore();
+        int contestScore = sports.getSchoolCompetition().getScore();
+        int total = caculateTotalUtil.calculateSports(marathonScore, leagueScore, contestScore);
+        return SportsResponse.builder()
+                .marathon(sports.getMarathon())
+                .innerLeague(sports.getInnerLeague())
+                .schoolCompetition(sports.getSchoolCompetition())
                 .build();
     }
 }
