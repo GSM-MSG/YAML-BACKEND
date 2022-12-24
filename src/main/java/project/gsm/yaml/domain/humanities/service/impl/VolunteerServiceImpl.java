@@ -3,6 +3,7 @@ package project.gsm.yaml.domain.humanities.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import project.gsm.yaml.domain.humanities.entity.Humanities;
+import project.gsm.yaml.domain.humanities.entity.Volunteer;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.VolunteerResponse;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.VolunteersResponse;
 import project.gsm.yaml.domain.humanities.repository.VolunteerRepository;
@@ -12,6 +13,7 @@ import project.gsm.yaml.domain.user.utils.UserUtil;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 @RequiredArgsConstructor
@@ -23,11 +25,11 @@ public class VolunteerServiceImpl implements VolunteerService {
 
     @Override
     public VolunteersResponse volunteersExecute() {
-        Humanities user = userUtil.currentUser().getHumanities();
-        List<VolunteerResponse> volunteerResponseList = user.getVolunteers().stream()
+        Stream<Volunteer> user = userUtil.currentUser().getHumanities().getVolunteers().stream();
+        List<VolunteerResponse> volunteerResponseList = user
                 .map(VolunteerResponse::new)
                 .collect(Collectors.toList());
-        int hour = user.getVolunteers().stream().map(volunteer -> volunteer.getHour()).reduce(0, (a, b) -> a+b);
+        int hour = user.map(volunteer -> volunteer.getHour()).reduce(0, (a, b) -> a+b);
         int total = caculateTotalUtil.calculateVounteers(hour);
         return VolunteersResponse.builder()
                 .list(volunteerResponseList)
