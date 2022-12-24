@@ -64,6 +64,6 @@ public class PrizeServiceImpl implements PrizeService {
     @Override
     public void patchInsidePrize(ModifyInsidePrizeRequest modifyInsidePrizeRequest) {
         Major major = userUtil.currentUser().getMajor();
-            major.update(modifyInsidePrizeRequest.getGsmFestival(), modifyInsidePrizeRequest.getMajorClubPresentation());
+            major.updatePrize(modifyInsidePrizeRequest.getGsmFestival(), modifyInsidePrizeRequest.getMajorClubPresentation());
     }
 }
