@@ -3,8 +3,10 @@ package project.gsm.yaml.domain.humanities.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import project.gsm.yaml.domain.humanities.entity.Book;
+import project.gsm.yaml.domain.humanities.entity.Humanities;
 import project.gsm.yaml.domain.humanities.exceptions.BooksNotFoundException;
 import project.gsm.yaml.domain.humanities.presentation.dto.request.BooksRequest;
+import project.gsm.yaml.domain.humanities.presentation.dto.request.ModifyBookMarathonRequest;
 import project.gsm.yaml.domain.humanities.presentation.dto.request.ModifyBooksRequest;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.BookResponse;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.BooksResponse;
@@ -57,5 +59,11 @@ public class BookSeviceImpl implements BookService {
     public void patchBooksExecute(Long id, ModifyBooksRequest modifyBooksRequest){
         Book book = bookRepository.findById(id).orElseThrow(()-> new BooksNotFoundException("독서활동 이력을 찾을 수 없습니다."));
         book.update(modifyBooksRequest.getName(), modifyBooksRequest.getAuthor(), modifyBooksRequest.getField(), modifyBooksRequest.getReview());
+    }
+
+    @Override
+    public void patchBooksMarathonExecute(ModifyBookMarathonRequest modifyBookMarathonRequest){
+        Humanities humanities = userUtil.currentUser().getHumanities();
+        humanities.updateBooksMarathon(modifyBookMarathonRequest.getBookMarathon());
     }
 }
