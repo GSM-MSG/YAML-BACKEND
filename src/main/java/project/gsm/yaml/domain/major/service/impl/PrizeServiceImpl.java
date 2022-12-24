@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import project.gsm.yaml.domain.major.entity.Major;
 import project.gsm.yaml.domain.major.entity.OutsideAwards;
 import project.gsm.yaml.domain.major.exceptions.AwardsNotFoundException;
+import project.gsm.yaml.domain.major.presentation.dto.request.DeleteOutsidePrizeRequest;
 import project.gsm.yaml.domain.major.presentation.dto.request.ModifyInsidePrizeRequest;
 import project.gsm.yaml.domain.major.presentation.dto.request.ModifyOutsidePrizeRequest;
 import project.gsm.yaml.domain.major.presentation.dto.request.OutsidePrizeRequest;
@@ -65,5 +66,10 @@ public class PrizeServiceImpl implements PrizeService {
     public void patchInsidePrize(ModifyInsidePrizeRequest modifyInsidePrizeRequest) {
         Major major = userUtil.currentUser().getMajor();
             major.updatePrize(modifyInsidePrizeRequest.getGsmFestival(), modifyInsidePrizeRequest.getMajorClubPresentation());
+    }
+
+    @Override
+    public void deleteOutsidePrize(Long id) {
+        outSideAwardsRepository.deleteById(id);
     }
 }
