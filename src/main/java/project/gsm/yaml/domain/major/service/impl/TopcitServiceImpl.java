@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import project.gsm.yaml.domain.major.entity.Topcit;
 import project.gsm.yaml.domain.major.presentation.dto.request.ModifyTopcitRequest;
 import project.gsm.yaml.domain.major.presentation.dto.response.TopcitResponse;
+import project.gsm.yaml.domain.major.repository.TopcitRepository;
 import project.gsm.yaml.domain.major.service.TopcitService;
 import project.gsm.yaml.domain.major.utils.MajorCalculateTotalUtil;
 import project.gsm.yaml.domain.user.utils.UserUtil;
@@ -15,6 +16,7 @@ public class TopcitServiceImpl implements TopcitService {
 
     private final UserUtil userUtil;
     private final MajorCalculateTotalUtil majorCalculateTotalUtil;
+    private final TopcitRepository topcitRepository;
 
     @Override
     public TopcitResponse getTopcit() {
@@ -32,4 +34,11 @@ public class TopcitServiceImpl implements TopcitService {
         Topcit topcit = userUtil.currentUser().getMajor().getTopcit();
         topcit.update(topcit.getScore(), topcit.getFileURL());
     }
+
+    @Override
+    public void deleteTopcit(Long id) {
+        topcitRepository.deleteById(id);
+    }
+
+
 }

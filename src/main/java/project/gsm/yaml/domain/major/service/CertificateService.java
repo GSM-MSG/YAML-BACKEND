@@ -10,4 +10,6 @@ public interface CertificateService {
     void postCertificate(CertificateRequest certificateRequest);
 
     void patchCertificate(Long id, ModifyCertificateRequest modifyCertificateRequest);
+
+    void deleteCertificate(Long id);
 }

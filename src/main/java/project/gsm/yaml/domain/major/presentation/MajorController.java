@@ -114,9 +114,15 @@ public class MajorController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @DeleteMapping("/outside-contest/{id}")
-    public ResponseEntity<Void> deleteOutsideContest(@PathVariable Long id) {
-        contestService.deleteOutsideContest(id);
+    @DeleteMapping("/certificate/{id}")
+    public ResponseEntity<Void> deleteCertificate(@PathVariable Long id) {
+        certificateService.deleteCertificate(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping("/topcit/{id}")
+    public ResponseEntity<Void> deleteTopcit(@PathVariable Long id) {
+        topcitService.deleteTopcit(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

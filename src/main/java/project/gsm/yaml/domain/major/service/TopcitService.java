@@ -7,4 +7,6 @@ public interface TopcitService {
     TopcitResponse getTopcit();
 
     void patchTopcit(ModifyTopcitRequest modifyTopcitRequest);
+
+    void deleteTopcit(Long id);
 }
