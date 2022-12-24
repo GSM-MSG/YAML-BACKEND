@@ -89,4 +89,10 @@ public class MajorController {
         contestService.patchInsideContest(modifyInsideContestRequest);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @PatchMapping("/major-club")
+    public ResponseEntity<Void> patchMajorClub(@RequestBody @Valid ModifyMajorClubRequest modifyMajorClubRequest) {
+        majorClubService.patchMajorClub(modifyMajorClubRequest);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
