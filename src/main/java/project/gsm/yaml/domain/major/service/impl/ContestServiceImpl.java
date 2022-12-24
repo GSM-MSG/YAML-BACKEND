@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import project.gsm.yaml.domain.major.entity.Major;
 import project.gsm.yaml.domain.major.entity.OutsideContest;
+import project.gsm.yaml.domain.major.exceptions.ContestNotFoundException;
+import project.gsm.yaml.domain.major.presentation.dto.request.ModifyOutsideContestRequest;
 import project.gsm.yaml.domain.major.presentation.dto.request.OutsideContestRequest;
 import project.gsm.yaml.domain.major.presentation.dto.response.ContestResponse;
 import project.gsm.yaml.domain.major.presentation.dto.response.InsideContestResponse;
@@ -48,5 +50,11 @@ public class ContestServiceImpl implements ContestService {
                 .build();
 
         outsideContestRepository.save(outsideContest);
+    }
+
+    @Override
+    public void patchOutsideContest(Long id, ModifyOutsideContestRequest modifyOutsideContestRequest) {
+        OutsideContest outsideContest = outsideContestRepository.findById(id).orElseThrow(() -> new ContestNotFoundException("교육, 대회 참가이력을 찾을 수 없습니다"));
+        outsideContest.update(modifyOutsideContestRequest.getName(), modifyOutsideContestRequest.getFileURL());
     }
 }
