@@ -40,4 +40,7 @@ public class HumanitiesController {
         return new ResponseEntity<>(humanitiesCertificateResponse, HttpStatus.OK);
     }
 
+    @GetMapping("/sports")
+    public ResponseEntity<>
+
 }
