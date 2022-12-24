@@ -54,4 +54,10 @@ public class VolunteerServiceImpl implements VolunteerService {
                 .orElseThrow(()-> new VolunteerNotFoundException("봉사활동 이력을 찾을 수 없습니다."));
         volunteer.update(modifyVolunteerRequest.getName(), modifyVolunteerRequest.getTime());
     }
+
+    @Override
+    public void deleteVolunteerExecute(Long id) {
+        volunteerRepository.deleteById(id);
+    }
+
 }

@@ -118,4 +118,10 @@ public class HumanitiesController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @DeleteMapping("/volunteer/{id}")
+    public ResponseEntity<Void> deleteVolunteer(@PathVariable Long id){
+        volunteerService.deleteVolunteerExecute(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 }
