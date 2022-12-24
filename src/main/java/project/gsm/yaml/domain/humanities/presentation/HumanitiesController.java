@@ -53,4 +53,7 @@ public class HumanitiesController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+    @PostMapping("/books")
+    public ResponseEntity<Void> postBooks(@RequestBody @Valid )
+
 }
