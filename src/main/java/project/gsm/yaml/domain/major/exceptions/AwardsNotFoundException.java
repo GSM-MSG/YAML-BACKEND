@@ -7,7 +7,7 @@ import project.gsm.yaml.global.exceptions.ErrorCode;
 public class AwardsNotFoundException extends RuntimeException{
     private final ErrorCode errorCode;
 
-    public AwardsNotFoundException(String message, ErrorCode errorCode) {
+    public AwardsNotFoundException(String message) {
         super(message);
         this.errorCode = ErrorCode.AWARDS_NOT_FOUND;
     }
