@@ -64,8 +64,8 @@ public class HumanitiesServiceImpl implements HumanitiesService {
         Humanities user = userUtil.currentUser().getHumanities();
         ChineseCertificateResponse chineseCertificate = new ChineseCertificateResponse(user.getChineseCertificate());
         HistoryCertificateResponse historyCertificate = new HistoryCertificateResponse(user.getHistoryCertificates());
-        int chinese = user.getChineseLevel().getScore();
-        int history = user.getHistoryLevel().getScore();
+        int chinese = user.getChineseCertificate().getLevel().getScore();
+        int history = user.getHistoryCertificates().getLevel().getScore();
         int total = caculateTotalUtil.calculateHumanitiesCertificate(chinese, history);
         return HumanitiesCertificateResponse.builder()
                 .chinese(chineseCertificate)
