@@ -49,7 +49,8 @@ public class HumanitiesController {
 
     @PostMapping("/prize")
     public ResponseEntity<Void> postPrize(@RequestBody @Valid PrizeRequest prizeRequest){
-        humanitiesService.
+        humanitiesService.postPrizeExecute(prizeRequest);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 }
