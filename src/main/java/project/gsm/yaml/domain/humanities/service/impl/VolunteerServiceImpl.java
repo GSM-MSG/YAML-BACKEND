@@ -44,5 +44,6 @@ public class VolunteerServiceImpl implements VolunteerService {
                 .name(volunteerRequest.getName())
                 .time(volunteerRequest.getTime())
                 .build();
+        volunteerRepository.save(volunteer);
     }
 }
