@@ -44,7 +44,7 @@ public class MajorController {
     }
     @GetMapping("/topcit")
     public ResponseEntity<TopcitResponse> getTopcit() {
-        TopcitResponse topcitResponse = topcitService.execute();
+        TopcitResponse topcitResponse = topcitService.getTopcit();
         return new ResponseEntity<>(topcitResponse, HttpStatus.OK);
     }
 

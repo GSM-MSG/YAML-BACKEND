@@ -28,4 +28,9 @@ public class Topcit {
     @OneToOne
     @JoinColumn(name = "major")
     private Major major;
+
+    public void update(TopcitScore topcitScore, String fileURL) {
+        this.score = topcitScore;
+        this.fileURL = fileURL;
+    }
 }
