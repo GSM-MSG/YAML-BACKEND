@@ -68,7 +68,8 @@ public class HumanitiesController {
 
     @PostMapping("/volunteer")
     public ResponseEntity<Void> postVolunteers(@RequestBody @Valid VolunteerRequest volunteerRequest){
-        volunteerService
+        volunteerService.postVolunteersExecute(volunteerRequest);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 }
