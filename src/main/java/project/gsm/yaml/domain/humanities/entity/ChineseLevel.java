@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum ChineseCharacter {
+public enum ChineseLevel {
     SPECIAL(50),
     SEMI_SPECIAL(50),
     FIRST(50),

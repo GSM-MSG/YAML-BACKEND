@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import project.gsm.yaml.domain.user.entity.User;
 
 import javax.persistence.*;
 
@@ -13,16 +12,14 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Book {
+public class HistoryCertificate {
     @Id
     @GeneratedValue
     private Long id;
-    private String name;
-    private String author;
-    private String field;
-    private String review;
-    @ManyToOne
+    private ChineseLevel level;
+    private String fileURL;
+
+    @OneToOne
     @JoinColumn(name = "humanities")
     private Humanities humanities;
-
 }

@@ -28,11 +28,11 @@ public class Humanities {
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "humanities")
     private List<Volunteer> volunteers;
 
-    @Enumerated(EnumType.STRING)
-    private ChineseCharacter chineseCharacter;
+    @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "humanities")
+    private ChineseCertificate chineseCertificate;
 
-    @Enumerated(EnumType.STRING)
-    private KoreanHistoryRating historyRating;
+    @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "humanities")
+    private HistoryCertificate historyCertificates;
 
     @Enumerated(EnumType.STRING)
     private InnerSportsLeague sportsLeague;
@@ -45,4 +45,10 @@ public class Humanities {
 
     @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "humanities")
     private User user;
+
+    @PrePersist
+    public void prePersist(){
+        this.chineseCertificate = this.chineseCertificate == null ? "" : this.chineseCertificate;
+        this.historyCertificates = this.historyCertificates == null ? "" : this.historyCertificates;
+    }
 }
