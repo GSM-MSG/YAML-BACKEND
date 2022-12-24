@@ -3,11 +3,11 @@ package project.gsm.yaml.domain.major.presentation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import project.gsm.yaml.domain.major.presentation.dto.request.OutsidePrizeRequest;
 import project.gsm.yaml.domain.major.presentation.dto.response.*;
 import project.gsm.yaml.domain.major.service.*;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/major")
@@ -21,7 +21,7 @@ public class MajorController {
 
     @GetMapping("/prize")
     public ResponseEntity<PrizeResponse> getPrize() {
-        PrizeResponse prizeResponse = prizeService.execute();
+        PrizeResponse prizeResponse = prizeService.getPrize();
         return new ResponseEntity<>(prizeResponse, HttpStatus.OK);
     }
 
@@ -42,10 +42,15 @@ public class MajorController {
         CertificateResponse certificateResponse = certificateService.execute();
         return new ResponseEntity<>(certificateResponse, HttpStatus.OK);
     }
-
     @GetMapping("/topcit")
     public ResponseEntity<TopcitResponse> getTopcit() {
         TopcitResponse topcitResponse = topcitService.execute();
         return new ResponseEntity<>(topcitResponse, HttpStatus.OK);
+    }
+
+    @PostMapping("/outside-prize")
+    public ResponseEntity<Void> postOutSidePrize(@RequestBody @Valid OutsidePrizeRequest outsidePrizeRequest) {
+        prizeService.postPrize(outsidePrizeRequest);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
