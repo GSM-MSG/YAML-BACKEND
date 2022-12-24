@@ -55,13 +55,14 @@ public class HumanitiesController {
 
     @PostMapping("/prize")
     public ResponseEntity<Void> postPrize(@RequestBody @Valid PrizeRequest prizeRequest){
-        humanitiesService.postPrizeExecute(prizeRequest);
+        prizeService.postPrizeExecute(prizeRequest);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PostMapping("/books")
     public ResponseEntity<Void> postBooks(@RequestBody @Valid BooksRequest booksRequest){
-        humanitiesService.
+        bookService.postBooksExecute(booksRequest);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 }
