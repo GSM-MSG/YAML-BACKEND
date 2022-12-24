@@ -3,7 +3,9 @@ package project.gsm.yaml.domain.humanities.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import project.gsm.yaml.domain.humanities.entity.Book;
+import project.gsm.yaml.domain.humanities.exceptions.BooksNotFoundException;
 import project.gsm.yaml.domain.humanities.presentation.dto.request.BooksRequest;
+import project.gsm.yaml.domain.humanities.presentation.dto.request.ModifyBooksRequest;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.BookResponse;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.BooksResponse;
 import project.gsm.yaml.domain.humanities.repository.BookRepository;
@@ -49,5 +51,11 @@ public class BookSeviceImpl implements BookService {
                 .build();
 
         bookRepository.save(book);
+    }
+
+    @Override
+    public void patchBooksExecute(Long id, ModifyBooksRequest modifyBooksRequest){
+        Book book = bookRepository.findById(id).orElseThrow(()-> new BooksNotFoundException("독서활동 이력을 찾을 수 없습니다."));
+        book.update(modifyBooksRequest.getName(), modifyBooksRequest.getAuthor(), modifyBooksRequest.getField(), modifyBooksRequest.getReview());
     }
 }

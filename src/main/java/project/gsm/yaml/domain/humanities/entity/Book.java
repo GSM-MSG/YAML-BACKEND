@@ -25,4 +25,11 @@ public class Book {
     @JoinColumn(name = "humanities")
     private Humanities humanities;
 
+    public void update(String name, String author, String field, String review){
+        this.name = name;
+        this.author = author;
+        this.field = field;
+        this.review = review;
+    }
+
 }
