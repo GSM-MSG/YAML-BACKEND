@@ -24,4 +24,11 @@ public class Sports {
     @ManyToOne
     @JoinColumn(name = "humanities")
     private Humanities humanities;
+
+    public void update(Marathon marathon, InnerSportsLeague innerLeague, SchoolSportsCompetition schoolSportsCompetition, Integer total) {
+        this.marathon = marathon;
+        this.innerLeague = innerLeague;
+        this.schoolCompetition = schoolSportsCompetition;
+        this.total = total;
+    }
 }
