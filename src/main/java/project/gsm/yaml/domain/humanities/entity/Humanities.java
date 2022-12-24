@@ -25,6 +25,9 @@ public class Humanities {
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "humanities")
     private List<Book> books;
 
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "humanities")
+    private List<Volunteer> volunteers;
+
     @Enumerated(EnumType.STRING)
     private ChineseCharacter chineseCharacter;
 
@@ -40,6 +43,6 @@ public class Humanities {
     @Enumerated(EnumType.STRING)
     private SchoolSportsCompetition schoolSportsCompetition;
 
-    @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "user")
+    @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "humanities")
     private User user;
 }

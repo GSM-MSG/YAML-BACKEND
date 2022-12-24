@@ -31,4 +31,14 @@ public class HumanitiesCaculateTotalUtil {
 
         return score;
     }
+
+    public int calculateVounteers(int hour){
+        score = 0;
+        score = score + hour * 10;
+
+        if(score > 300)
+            return 300;
+
+        return score;
+    }
 }

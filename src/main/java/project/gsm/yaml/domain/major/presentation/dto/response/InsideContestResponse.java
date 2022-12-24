@@ -4,8 +4,8 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import project.gsm.yaml.domain.major.entity.Major;
 
-@RequiredArgsConstructor
 @Getter
+@RequiredArgsConstructor
 public class InsideContestResponse {
 
     private final Boolean gsmFestival;
