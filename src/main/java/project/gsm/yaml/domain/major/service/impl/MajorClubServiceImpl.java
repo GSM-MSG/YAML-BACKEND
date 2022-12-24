@@ -29,6 +29,6 @@ public class MajorClubServiceImpl implements MajorClubService {
     @Override
     public void patchMajorClub(ModifyMajorClubRequest modifyMajorClubRequest) {
         Major major = userUtil.currentUser().getMajor();
-            major.updateMajorClub(major.getMajorClub());
+            major.updateMajorClub(modifyMajorClubRequest.getName());
     }
 }
