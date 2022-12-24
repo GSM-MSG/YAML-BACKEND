@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import project.gsm.yaml.domain.major.presentation.dto.request.OutsideContestRequest;
 import project.gsm.yaml.domain.major.presentation.dto.request.OutsidePrizeRequest;
 import project.gsm.yaml.domain.major.presentation.dto.response.*;
 import project.gsm.yaml.domain.major.service.*;
@@ -51,6 +52,12 @@ public class MajorController {
     @PostMapping("/outside-prize")
     public ResponseEntity<Void> postOutSidePrize(@RequestBody @Valid OutsidePrizeRequest outsidePrizeRequest) {
         prizeService.postPrize(outsidePrizeRequest);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @PostMapping("/outside-contest")
+    public ResponseEntity<Void> postOutsideContest(@RequestBody @Valid OutsideContestRequest outsideContestRequest){
+        contestService.postContest(outsideContestRequest);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
