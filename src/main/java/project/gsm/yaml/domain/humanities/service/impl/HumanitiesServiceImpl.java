@@ -2,6 +2,7 @@ package project.gsm.yaml.domain.humanities.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import project.gsm.yaml.domain.humanities.entity.Humanities;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.*;
 import project.gsm.yaml.domain.humanities.service.HumanitiesService;
 import project.gsm.yaml.domain.humanities.utils.HumanitiesCaculateTotalUtil;
@@ -60,19 +61,15 @@ public class HumanitiesServiceImpl implements HumanitiesService {
 
     @Override
     public HumanitiesCertificateResponse chineseCertificateExecute(){
-        User user = userUtil.currentUser();
-        List<ChineseCertificateResponse> chineseCertificateResponseList = user.getHumanities().getChineseCertificate().stream()
-                .map(ChineseCertificateResponse::new)
-                .collect(Collectors.toList());
-        List<HistoryCertificateResponse> historyCertificateResponseList = user.getHumanities().getHistoryCertificates().stream()
-                .map(HistoryCertificateResponse::new)
-                .collect(Collectors.toList());
-        int Chinese = user.getHumanities().getChineseLevel().getScore();
-        int History = user.getHumanities().getHistoryLevel().getScore();
-        int total = caculateTotalUtil.calculateHumanitiesCertificate(Chinese, History);
+        Humanities user = userUtil.currentUser().getHumanities();
+        ChineseCertificateResponse chineseCertificate = new ChineseCertificateResponse(user.getChineseCertificate());
+        HistoryCertificateResponse historyCertificate = new HistoryCertificateResponse(user.getHistoryCertificates());
+        int chinese = user.getChineseLevel().getScore();
+        int history = user.getHistoryLevel().getScore();
+        int total = caculateTotalUtil.calculateHumanitiesCertificate(chinese, history);
         return HumanitiesCertificateResponse.builder()
-                .chinese(chineseCertificateResponseList)
-                .history(historyCertificateResponseList)
+                .chinese(chineseCertificate)
+                .history(historyCertificate)
                 .total(total)
                 .build();
     }

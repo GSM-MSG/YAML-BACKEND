@@ -8,7 +8,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Builder
 public class HumanitiesCertificateResponse {
-    private final List<ChineseCertificateResponse> chinese;
-    private final List<HistoryCertificateResponse> history;
+    private final ChineseCertificateResponse chinese;
+    private final HistoryCertificateResponse history;
     private Integer total;
 }

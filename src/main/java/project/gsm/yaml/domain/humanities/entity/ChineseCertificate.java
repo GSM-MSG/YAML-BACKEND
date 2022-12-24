@@ -19,7 +19,7 @@ public class ChineseCertificate {
     private ChineseLevel level;
     private String fileURL;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "humanities")
     private Humanities humanities;
 }
