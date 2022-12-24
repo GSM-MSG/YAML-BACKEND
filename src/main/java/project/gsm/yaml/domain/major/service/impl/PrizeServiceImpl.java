@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import project.gsm.yaml.domain.major.entity.Major;
 import project.gsm.yaml.domain.major.entity.OutsideAwards;
 import project.gsm.yaml.domain.major.exceptions.AwardsNotFoundException;
+import project.gsm.yaml.domain.major.presentation.dto.request.ModifyInsidePrizeRequest;
 import project.gsm.yaml.domain.major.presentation.dto.request.ModifyOutsidePrizeRequest;
 import project.gsm.yaml.domain.major.presentation.dto.request.OutsidePrizeRequest;
 import project.gsm.yaml.domain.major.presentation.dto.response.InsidePrizeResponse;
@@ -58,5 +59,11 @@ public class PrizeServiceImpl implements PrizeService {
     public void patchOutsidePrize(Long id, ModifyOutsidePrizeRequest modifyOutsidePrizeRequest) {
         OutsideAwards outsideAwards = outSideAwardsRepository.findById(id).orElseThrow(()-> new AwardsNotFoundException("수상경력을 찾을 수 없습니다"));
         outsideAwards.update(modifyOutsidePrizeRequest.getName(), modifyOutsidePrizeRequest.getFileURL());
+    }
+
+    @Override
+    public void patchInsidePrize(ModifyInsidePrizeRequest modifyInsidePrizeRequest) {
+        Major major = userUtil.currentUser().getMajor();
+            major.update(modifyInsidePrizeRequest.getGsmFestival(), modifyInsidePrizeRequest.getMajorClubPresentation());
     }
 }
