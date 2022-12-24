@@ -44,7 +44,7 @@ public class MajorController {
     }
     @GetMapping("/topcit")
     public ResponseEntity<TopcitResponse> getTopcit() {
-        TopcitResponse topcitResponse = topcitService.execute();
+        TopcitResponse topcitResponse = topcitService.getTopcit();
         return new ResponseEntity<>(topcitResponse, HttpStatus.OK);
     }
 
@@ -99,6 +99,12 @@ public class MajorController {
     @PatchMapping("/certificate/{id}")
     public ResponseEntity<Void> patchCertificate(@PathVariable Long id, @RequestBody @Valid ModifyCertificateRequest modifyCertificateRequest) {
         certificateService.patchCertificate(id, modifyCertificateRequest);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PatchMapping("/topcit")
+    public ResponseEntity<Void> patchTopcit(@RequestBody @Valid ModifyTopcitRequest modifyTopcitRequest) {
+        topcitService.patchTopcit(modifyTopcitRequest);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
