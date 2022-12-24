@@ -21,7 +21,6 @@ public class CertificateServiceImpl implements CertificateService {
 
     private final UserUtil userUtil;
     private final MajorCalculateTotalUtil majorCalculateTotalUtil;
-
     private final CertificateRepository certificateRepository;
 
     @Override
