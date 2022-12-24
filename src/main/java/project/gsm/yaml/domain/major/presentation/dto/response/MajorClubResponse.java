@@ -4,16 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 
-import java.util.List;
-
 @Builder
-@AllArgsConstructor
 @RequiredArgsConstructor
-public class PrizeResponse {
+public class MajorClubResponse {
 
-    private final List<SingleOutsidePrizeResponse> outside;
-
-    private final InsidePrizeResponse inside;
+    private final String name;
 
     private final Integer total;
 }

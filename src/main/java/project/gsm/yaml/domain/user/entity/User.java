@@ -48,12 +48,4 @@ public class User extends BaseTimeEntity{
     @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "user")
     @JoinColumn(name = "humanities")
     private Humanities humanities;
-
-    @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "user")
-    @JoinColumn(name = "book")
-    private Book book;
-
-    @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "user")
-    @JoinColumn(name = "volunteer")
-    private Volunteer volunteer;
 }

@@ -37,6 +37,7 @@ public class Major {
 
     private Boolean deepMajorClub;
 
+
     //전공동아리
     @Column(name = "major_club")
     private String majorClub;
@@ -48,4 +49,11 @@ public class Major {
     @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "major")
     private User user;
 
+    @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "major")
+    private Topcit topcit;
+
+    @PrePersist
+    public void prePersist(){
+        this.majorClub = this.majorClub == null ? "" : this.majorClub;
+    }
 }

@@ -7,7 +7,7 @@ public interface HumanitiesService {
 
     BooksResponse booksExecute();
 
-    VolunteersResponse volunteersExcute();
+    VolunteersResponse volunteersExecute();
 
     HumanitiesCertificateResponse chineseCertificateExecute();
 }

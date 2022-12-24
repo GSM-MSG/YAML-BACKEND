@@ -46,12 +46,12 @@ public class HumanitiesServiceImpl implements HumanitiesService {
     }
 
     @Override
-    public VolunteersResponse volunteersExcute() {
+    public VolunteersResponse volunteersExecute() {
         User user = userUtil.currentUser();
         List<VolunteerResponse> volunteerResponseList = user.getHumanities().getVolunteers().stream()
                 .map(VolunteerResponse::new)
                 .collect(Collectors.toList());
-        int hour = user.getVolunteer().getHour();
+        int hour = user.getHumanities().getVolunteers().stream().map(volunteer -> volunteer.getHour()).reduce(0, (a, b) -> a+b);
         int total = caculateTotalUtil.calculateVounteers(hour);
         return VolunteersResponse.builder()
                 .list(volunteerResponseList)

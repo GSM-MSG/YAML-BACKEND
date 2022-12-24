@@ -4,23 +4,28 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import project.gsm.yaml.domain.major.enums.TopcitScore;
 
 import javax.persistence.*;
 
+@Table(name = "major_topcit")
 @Entity
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class OutsideContest {
+public class Topcit {
+
     @Id
     @GeneratedValue
     private Long id;
 
-    private String name;
+    @Enumerated(EnumType.STRING)
+    private TopcitScore score;
 
-    private String fileUrl;
-    @ManyToOne
+    private String fileURL;
+
+    @OneToOne
     @JoinColumn(name = "major")
     private Major major;
 }

@@ -24,4 +24,5 @@ public class Volunteer {
     @JoinColumn(name = "humanities")
     private Humanities humanities;
 
+
 }
