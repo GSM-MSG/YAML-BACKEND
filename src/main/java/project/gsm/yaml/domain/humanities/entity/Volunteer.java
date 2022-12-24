@@ -18,7 +18,7 @@ public class Volunteer {
     @GeneratedValue
     private Long id;
     private String name;
-    private Integer hour;
+    private Integer time;
 
     @ManyToOne
     @JoinColumn(name = "humanities")

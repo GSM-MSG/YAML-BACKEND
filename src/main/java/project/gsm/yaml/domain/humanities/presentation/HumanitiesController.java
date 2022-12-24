@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import project.gsm.yaml.domain.humanities.presentation.dto.request.BooksRequest;
 import project.gsm.yaml.domain.humanities.presentation.dto.request.PrizeRequest;
+import project.gsm.yaml.domain.humanities.presentation.dto.request.VolunteerRequest;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.*;
 import project.gsm.yaml.domain.humanities.service.*;
 
@@ -63,6 +64,11 @@ public class HumanitiesController {
     public ResponseEntity<Void> postBooks(@RequestBody @Valid BooksRequest booksRequest){
         bookService.postBooksExecute(booksRequest);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @PostMapping("/volunteer")
+    public ResponseEntity<Void> postVolunteers(@RequestBody @Valid VolunteerRequest volunteerRequest){
+        volunteerService
     }
 
 }
