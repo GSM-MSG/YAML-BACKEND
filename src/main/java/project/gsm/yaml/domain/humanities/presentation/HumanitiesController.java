@@ -124,4 +124,10 @@ public class HumanitiesController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @DeleteMapping("/chinese-certificate")
+    public ResponseEntity<Void> deleteChineseCertificate(@PathVariable Long id){
+        humanitiesCertificateService.deleteChineseCertificate(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 }

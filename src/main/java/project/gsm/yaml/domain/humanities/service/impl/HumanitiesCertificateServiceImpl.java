@@ -7,6 +7,7 @@ import project.gsm.yaml.domain.humanities.presentation.dto.request.ModifyHumanit
 import project.gsm.yaml.domain.humanities.presentation.dto.response.ChineseCertificateResponse;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.HistoryCertificateResponse;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.HumanitiesCertificateResponse;
+import project.gsm.yaml.domain.humanities.repository.ChineseCertificateRepository;
 import project.gsm.yaml.domain.humanities.service.HumanitiesCertificateService;
 import project.gsm.yaml.domain.humanities.utils.HumanitiesCaculateTotalUtil;
 import project.gsm.yaml.domain.user.utils.UserUtil;
@@ -16,6 +17,8 @@ import project.gsm.yaml.domain.user.utils.UserUtil;
 public class HumanitiesCertificateServiceImpl implements HumanitiesCertificateService {
     private final UserUtil userUtil;
     private final HumanitiesCaculateTotalUtil caculateTotalUtil;
+
+    private final ChineseCertificateRepository chineseCertificateRepository;
 
     @Override
     public HumanitiesCertificateResponse humanitiesCertificateExecute(){
@@ -37,5 +40,10 @@ public class HumanitiesCertificateServiceImpl implements HumanitiesCertificateSe
         Humanities humanities = userUtil.currentUser().getHumanities();
         humanities.getChineseCertificate().update(modifyHumanitiesCertificateRequest.getChinese().getLevel(), modifyHumanitiesCertificateRequest.getChinese().getFileURL());
         humanities.getHistoryCertificates().update(modifyHumanitiesCertificateRequest.getHistory().getLevel(), modifyHumanitiesCertificateRequest.getHistory().getFileURL());
+    }
+
+    @Override
+    public void deleteChineseCertificate(Long id) {
+        chineseCertificateRepository.deleteById(id);
     }
 }
