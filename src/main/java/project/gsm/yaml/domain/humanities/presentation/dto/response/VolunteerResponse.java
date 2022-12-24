@@ -12,6 +12,6 @@ public class VolunteerResponse {
     public VolunteerResponse(Volunteer volunteer){
         this.id = volunteer.getId();
         this.name = volunteer.getName();
-        this.hour = volunteer.getHour();
+        this.hour = volunteer.getTime();
     }
 }
