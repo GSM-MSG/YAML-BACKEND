@@ -4,8 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import project.gsm.yaml.domain.major.entity.Certificate;
 import project.gsm.yaml.domain.major.entity.Major;
+import project.gsm.yaml.domain.major.presentation.dto.request.CertificateRequest;
 import project.gsm.yaml.domain.major.presentation.dto.response.CertificateResponse;
 import project.gsm.yaml.domain.major.presentation.dto.response.SingleCertificateResponse;
+import project.gsm.yaml.domain.major.repository.CertificateRepository;
 import project.gsm.yaml.domain.major.service.CertificateService;
 import project.gsm.yaml.domain.major.utils.MajorCalculateTotalUtil;
 import project.gsm.yaml.domain.user.utils.UserUtil;
@@ -19,9 +21,10 @@ public class CertificateServiceImpl implements CertificateService {
 
     private final UserUtil userUtil;
     private final MajorCalculateTotalUtil majorCalculateTotalUtil;
+    private final CertificateRepository certificateRepository;
 
     @Override
-    public CertificateResponse execute() {
+    public CertificateResponse getCertificate() {
         Major major = userUtil.currentUser().getMajor();
         List<SingleCertificateResponse> singleCertificateResponseList = major.getCertificates().stream()
                 .map(SingleCertificateResponse::new)
@@ -32,5 +35,15 @@ public class CertificateServiceImpl implements CertificateService {
                 .list(singleCertificateResponseList)
                 .total(total)
                 .build();
+    }
+
+    @Override
+    public void postCertificate(CertificateRequest certificateRequest) {
+        Certificate certificate = Certificate.builder()
+                .name(certificateRequest.getName())
+                .fileURL(certificateRequest.getFileURL())
+                .build();
+
+        certificateRepository.save(certificate);
     }
 }
