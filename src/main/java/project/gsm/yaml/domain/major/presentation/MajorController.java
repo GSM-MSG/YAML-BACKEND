@@ -33,7 +33,7 @@ public class MajorController {
 
     @GetMapping("/major-club")
     public ResponseEntity<MajorClubResponse> getMajorClub() {
-        MajorClubResponse majorClubResponse = majorClubService.execute();
+        MajorClubResponse majorClubResponse = majorClubService.getMajorClub();
         return new ResponseEntity<>(majorClubResponse, HttpStatus.OK);
     }
 

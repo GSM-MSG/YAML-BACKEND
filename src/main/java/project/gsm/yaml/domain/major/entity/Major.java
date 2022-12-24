@@ -70,4 +70,8 @@ public class Major {
         this.attendGsmFestival = attendGsmFestival;
         this.attendClubMajorPresentation = attendClubMajorPresentation;
     }
+
+    public void updateMajorClub(String majorClub) {
+        this.majorClub = majorClub;
+    }
 }
