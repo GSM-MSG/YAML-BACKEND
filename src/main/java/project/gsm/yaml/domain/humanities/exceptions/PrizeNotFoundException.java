@@ -9,6 +9,6 @@ public class PrizeNotFoundException extends RuntimeException{
 
     public PrizeNotFoundException(String message){
         super(message);
-        this.errorCode = ErrorCode.PRIZE_NOT_FOUND;
+        this.errorCode = ErrorCode.AWARDS_NOT_FOUND;
     }
 }
