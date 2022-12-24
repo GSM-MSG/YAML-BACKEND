@@ -106,4 +106,16 @@ public class HumanitiesController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @DeleteMapping("/prize/{id}")
+    public ResponseEntity<Void> deletePrize(@PathVariable Long id){
+        prizeService.deletePrizeExecute(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping("/books/{id}")
+    public ResponseEntity<Void> deleteBooks(@PathVariable Long id){
+        bookService.deleteBooksExecute(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 }

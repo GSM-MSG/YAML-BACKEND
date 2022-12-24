@@ -50,4 +50,9 @@ public class PrizeServiceImpl implements PrizeService {
                 .orElseThrow(()-> new AwardsNotFoundException("수상경력을 찾을 수 없습니다."));
         awards.update(modifyPrizeRequest.getName(), modifyPrizeRequest.getFileURL());
     }
+
+    @Override
+    public void deletePrizeExecute(Long id) {
+        awardsRepository.deleteById(id);
+    }
 }
