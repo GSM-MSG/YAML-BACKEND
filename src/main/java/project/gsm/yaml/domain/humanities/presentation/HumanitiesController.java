@@ -130,4 +130,10 @@ public class HumanitiesController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @DeleteMapping("/history-certificate")
+    public ResponseEntity<Void> deleteHistoryCertificate(@PathVariable Long id){
+        humanitiesCertificateService.deletehistoryCertificate(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 }

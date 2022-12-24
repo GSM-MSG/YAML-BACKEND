@@ -9,4 +9,6 @@ public interface HumanitiesCertificateService {
     void patchCertificateExecute(ModifyHumanitiesCertificateRequest modifyHumanitiesCertificateRequest);
 
     void deleteChineseCertificate(Long id);
+
+    void deletehistoryCertificate(Long id);
 }
