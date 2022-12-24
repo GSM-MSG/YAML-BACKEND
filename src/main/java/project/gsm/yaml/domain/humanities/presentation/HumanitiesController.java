@@ -19,8 +19,8 @@ public class HumanitiesController {
     private final PrizeService prizeService;
     private final BookService bookService;
     private final VolunteerService volunteerService;
-    private HumanitiesCertificateService humanitiesCertificateService;
-    private SportsService sportsService;
+    private final HumanitiesCertificateService humanitiesCertificateService;
+    private final SportsService sportsService;
 
 
     @GetMapping("/prize")
