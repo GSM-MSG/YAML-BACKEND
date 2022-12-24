@@ -9,5 +9,7 @@ public interface HumanitiesService {
 
     VolunteersResponse volunteersExecute();
 
-    HumanitiesCertificateResponse chineseCertificateExecute();
+    HumanitiesCertificateResponse humanitiesCertificateExecute();
+
+    SportsResponse sportsExecute();
 }

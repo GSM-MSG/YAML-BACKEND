@@ -60,7 +60,7 @@ public class HumanitiesServiceImpl implements HumanitiesService {
     }
 
     @Override
-    public HumanitiesCertificateResponse chineseCertificateExecute(){
+    public HumanitiesCertificateResponse humanitiesCertificateExecute(){
         Humanities user = userUtil.currentUser().getHumanities();
         ChineseCertificateResponse chineseCertificate = new ChineseCertificateResponse(user.getChineseCertificate());
         HistoryCertificateResponse historyCertificate = new HistoryCertificateResponse(user.getHistoryCertificates());
@@ -72,5 +72,10 @@ public class HumanitiesServiceImpl implements HumanitiesService {
                 .history(historyCertificate)
                 .total(total)
                 .build();
+    }
+
+    @Override
+    public SportsResponse sportsExecute(){
+        Humanities user = userUtil.currentUser().getHumanities();
     }
 }

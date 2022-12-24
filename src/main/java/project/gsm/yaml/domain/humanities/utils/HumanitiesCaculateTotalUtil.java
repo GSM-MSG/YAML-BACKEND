@@ -48,4 +48,12 @@ public class HumanitiesCaculateTotalUtil {
         score += history;
         return score;
     }
+
+    public int calculateSports(int marathon, int schoolLeague, int sportsClubContest){
+        score = 0;
+        score += marathon;
+        score += schoolLeague;
+        score += sportsClubContest;
+        return score;
+    }
 }
