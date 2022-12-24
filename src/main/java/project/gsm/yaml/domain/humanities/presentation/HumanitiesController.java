@@ -100,4 +100,10 @@ public class HumanitiesController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @PatchMapping("/sports")
+    public ResponseEntity<Void> patchSports(@RequestBody @Valid ModifySportsRequest modifySportsRequest){
+        sportsService.patchSportsExecute(modifySportsRequest);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 }
