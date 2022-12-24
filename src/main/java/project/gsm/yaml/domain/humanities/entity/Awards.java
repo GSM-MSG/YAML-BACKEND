@@ -20,14 +20,14 @@ public class Awards {
 
     private String name;
 
-    private String fileUrl;
+    private String fileURL;
 
     @ManyToOne
     @JoinColumn(name = "humanities")
     private Humanities humanities;
 
-    public void update(String name, String fileUrl) {
+    public void update(String name, String fileURL) {
         this.name = name;
-        this.fileUrl = fileUrl;
+        this.fileURL = fileURL;
     }
 }

@@ -39,7 +39,7 @@ public class PrizeServiceImpl implements PrizeService {
     public void postPrizeExecute(PrizeRequest prizeRequest){
         Awards awards = Awards.builder()
                 .name(prizeRequest.getName())
-                .fileUrl(prizeRequest.getFileURL())
+                .fileURL(prizeRequest.getFileURL())
                 .build();
         awardsRepository.save(awards);
     }
