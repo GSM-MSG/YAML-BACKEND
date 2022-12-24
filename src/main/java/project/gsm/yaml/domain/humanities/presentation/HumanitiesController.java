@@ -42,7 +42,7 @@ public class HumanitiesController {
 
     @GetMapping("/sports")
     public ResponseEntity<SportsResponse> getSports(){
-        SportsResponse sportsResponse = humanitiesService
+        SportsResponse sportsResponse = humanitiesService.
     }
 
 }
