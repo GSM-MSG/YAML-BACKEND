@@ -8,17 +8,17 @@ import project.gsm.yaml.domain.major.entity.Major;
 @RequiredArgsConstructor
 public class InsideContestResponse {
 
-    private final Boolean gsmFestival;
+    private final Boolean attendGsmFestival;
 
-    private final Boolean majorClubPresentation;
+    private final Boolean attendMajorClubPresentation;
 
     private final Integer afterSchool;
 
     private final Boolean deepMajorClub;
 
     public InsideContestResponse(Major major) {
-        this.gsmFestival = major.getGsmFestival();
-        this.majorClubPresentation = major.getClubMajorPresentation();
+        this.attendGsmFestival = major.getAttendGsmFestival();
+        this.attendMajorClubPresentation = major.getAttendClubMajorPresentation();
         this.afterSchool = major.getAfterSchool();
         this.deepMajorClub = major.getDeepMajorClub();
     }
