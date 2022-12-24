@@ -107,4 +107,16 @@ public class MajorController {
         topcitService.patchTopcit(modifyTopcitRequest);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @DeleteMapping("/outside-prize/{id}")
+    public ResponseEntity<Void> deleteOutsidePrize(@PathVariable Long id) {
+        prizeService.deleteOutsidePrize(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping("/outside-contest/{id}")
+    public ResponseEntity<Void> deleteOutsideContest(@PathVariable Long id) {
+        contestService.deleteOutsideContest(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

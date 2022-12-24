@@ -64,4 +64,9 @@ public class ContestServiceImpl implements ContestService {
         Major major = userUtil.currentUser().getMajor();
             major.updateContest(modifyInsideContestRequest.getAttendGsmFestival(), modifyInsideContestRequest.getAttendClubMajorPresentation());
     }
+
+    @Override
+    public void deleteOutsideContest(Long id) {
+        outsideContestRepository.deleteById(id);
+    }
 }

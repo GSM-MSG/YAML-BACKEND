@@ -13,4 +13,6 @@ public interface ContestService {
     void patchOutsideContest(Long id, ModifyOutsideContestRequest modifyOutsideContestRequest);
 
     void patchInsideContest(ModifyInsideContestRequest modifyInsideContestRequest);
+
+    void deleteOutsideContest(Long id);
 }
