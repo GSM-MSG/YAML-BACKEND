@@ -16,10 +16,16 @@ public class HistoryCertificate {
     @Id
     @GeneratedValue
     private Long id;
-    private ChineseLevel level;
+    @Enumerated(EnumType.STRING)
+    private HistoryLevel level;
     private String fileURL;
 
     @OneToOne
     @JoinColumn(name = "humanities")
     private Humanities humanities;
+
+    public void update(HistoryLevel level, String fileURL) {
+        this.level = level;
+        this.fileURL = fileURL;
+    }
 }

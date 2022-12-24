@@ -16,10 +16,17 @@ public class ChineseCertificate {
     @Id
     @GeneratedValue
     private Long id;
+
+    @Enumerated(EnumType.STRING)
     private ChineseLevel level;
     private String fileURL;
 
     @OneToOne
     @JoinColumn(name = "humanities")
     private Humanities humanities;
+
+    public void update(ChineseLevel level, String fileURL) {
+        this.level = level;
+        this.fileURL = fileURL;
+    }
 }
