@@ -3,11 +3,12 @@ package project.gsm.yaml.domain.humanities.presentation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import project.gsm.yaml.domain.humanities.presentation.dto.request.PrizeRequest;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.*;
 import project.gsm.yaml.domain.humanities.service.HumanitiesService;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/humanities")
@@ -44,6 +45,12 @@ public class HumanitiesController {
     public ResponseEntity<SportsResponse> getSports(){
         SportsResponse sportsResponse = humanitiesService.sportsExecute();
         return new ResponseEntity<>(sportsResponse, HttpStatus.OK);
+    }
+
+    @PostMapping("/prize")
+    public ResponseEntity<Void> postPrize(@RequestBody @Valid PrizeRequest prizeRequest){
+        humanitiesService.postPrizeExecute(prizeRequest);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 }

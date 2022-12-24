@@ -2,9 +2,12 @@ package project.gsm.yaml.domain.humanities.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import project.gsm.yaml.domain.humanities.entity.Awards;
 import project.gsm.yaml.domain.humanities.entity.Humanities;
 import project.gsm.yaml.domain.humanities.entity.Sports;
+import project.gsm.yaml.domain.humanities.presentation.dto.request.PrizeRequest;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.*;
+import project.gsm.yaml.domain.humanities.repository.AwardsRepository;
 import project.gsm.yaml.domain.humanities.service.HumanitiesService;
 import project.gsm.yaml.domain.humanities.utils.HumanitiesCaculateTotalUtil;
 import project.gsm.yaml.domain.user.entity.User;
@@ -18,6 +21,8 @@ import java.util.stream.Collectors;
 public class HumanitiesServiceImpl implements HumanitiesService {
     private final UserUtil userUtil;
     private final HumanitiesCaculateTotalUtil caculateTotalUtil;
+
+    private final AwardsRepository awardsRepository;
 
     @Override
     public PrizeResponse prizeExecute() {
@@ -87,5 +92,14 @@ public class HumanitiesServiceImpl implements HumanitiesService {
                 .innerLeague(sports.getInnerLeague())
                 .schoolCompetition(sports.getSchoolCompetition())
                 .build();
+    }
+
+    @Override
+    public void postPrizeExecute(PrizeRequest prizeRequest){
+        Awards awards = Awards.builder()
+                .name(prizeRequest.getName())
+                .fileUrl(prizeRequest.getFileURL())
+                .build();
+        awardsRepository.save(awards);
     }
 }
