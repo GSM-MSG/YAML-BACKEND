@@ -54,4 +54,8 @@ public class Humanities {
         this.chineseCertificate = this.chineseCertificate == null ? "" : this.chineseCertificate;
         this.historyCertificates = this.historyCertificates == null ? "" : this.historyCertificates;
     }
+
+    public void updateBooksMarathon(BookMarathon bookMarathon) {
+        this.bookMarathon = bookMarathon;
+    }
 }

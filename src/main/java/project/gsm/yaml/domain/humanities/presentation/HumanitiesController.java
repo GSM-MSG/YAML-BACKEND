@@ -70,15 +70,21 @@ public class HumanitiesController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PostMapping("/prize/{id}")
+    @PatchMapping("/prize/{id}")
     public ResponseEntity<Void> patchPrize(@PathVariable Long id, @RequestBody @Valid ModifyPrizeRequest modifyPrizeRequest){
         prizeService.patchPrizeExecute(id, modifyPrizeRequest);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PostMapping("/books/{id}")
+    @PatchMapping("/books/{id}")
     public ResponseEntity<Void> patchbooks(@PathVariable Long id, @RequestBody @Valid ModifyBooksRequest modifyBooksRequest){
         bookService.patchBooksExecute(id, modifyBooksRequest);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PatchMapping("/books/marathon")
+    public ResponseEntity<Void> patchBooksMarathon(@RequestBody @Valid ModifyBookMarathonRequest modifyBookMarathonRequest){
+        bookService.patchBooksMarathonExecute(modifyBookMarathonRequest);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
