@@ -5,8 +5,6 @@ import project.gsm.yaml.domain.major.enums.TopcitScore;
 import project.gsm.yaml.domain.major.presentation.dto.response.InsideContestResponse;
 import project.gsm.yaml.domain.major.presentation.dto.response.InsidePrizeResponse;
 
-import java.util.Optional;
-
 @Component
 public class MajorCalculateTotalUtil {
 
@@ -31,10 +29,10 @@ public class MajorCalculateTotalUtil {
         score += Math.min(5, afterSchool) * 10;
 
 
-        if(insideContestResponse.getGsmFestival())
+        if(insideContestResponse.getAttendGsmFestival())
             score = score +50;
 
-        if(insideContestResponse.getMajorClubPresentation())
+        if(insideContestResponse.getAttendMajorClubPresentation())
             score = score +50;
 
         if(insideContestResponse.getDeepMajorClub())

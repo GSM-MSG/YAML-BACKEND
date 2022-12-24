@@ -33,6 +33,10 @@ public class Major {
 
     private Boolean clubMajorPresentation;
 
+    private Boolean attendGsmFestival;
+
+    private Boolean attendClubMajorPresentation;
+
     private Integer afterSchool;
 
     private Boolean deepMajorClub;
