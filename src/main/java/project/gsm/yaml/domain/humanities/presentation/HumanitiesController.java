@@ -4,10 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import project.gsm.yaml.domain.humanities.presentation.dto.request.BooksRequest;
-import project.gsm.yaml.domain.humanities.presentation.dto.request.ModifyPrizeRequest;
-import project.gsm.yaml.domain.humanities.presentation.dto.request.PrizeRequest;
-import project.gsm.yaml.domain.humanities.presentation.dto.request.VolunteerRequest;
+import project.gsm.yaml.domain.humanities.presentation.dto.request.*;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.*;
 import project.gsm.yaml.domain.humanities.service.*;
 
@@ -76,6 +73,12 @@ public class HumanitiesController {
     @PostMapping("/prize/{id}")
     public ResponseEntity<Void> patchPrize(@PathVariable Long id, @RequestBody @Valid ModifyPrizeRequest modifyPrizeRequest){
         prizeService.patchPrizeExecute(id, modifyPrizeRequest);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PostMapping("/books/{id}")
+    public ResponseEntity<Void> patchbooks(@PathVariable Long id, @RequestBody @Valid ModifyBooksRequest modifyBooksRequest){
+        bookService.patchBooksExecute(id, modifyBooksRequest);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
