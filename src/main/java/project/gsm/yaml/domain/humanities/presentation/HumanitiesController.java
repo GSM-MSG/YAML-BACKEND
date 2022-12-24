@@ -90,7 +90,7 @@ public class HumanitiesController {
 
     @PatchMapping("/volunteer/{id}")
     public ResponseEntity<Void> patchVolunteer(@PathVariable Long id, @RequestBody @Valid ModifyVolunteerRequest modifyVolunteerRequest){
-        volunteerService.patchVolunteerExecute(modifyVolunteerRequest);
+        volunteerService.patchVolunteerExecute(id, modifyVolunteerRequest);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

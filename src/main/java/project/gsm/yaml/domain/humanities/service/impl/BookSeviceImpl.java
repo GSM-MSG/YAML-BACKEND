@@ -57,7 +57,8 @@ public class BookSeviceImpl implements BookService {
 
     @Override
     public void patchBooksExecute(Long id, ModifyBooksRequest modifyBooksRequest){
-        Book book = bookRepository.findById(id).orElseThrow(()-> new BooksNotFoundException("독서활동 이력을 찾을 수 없습니다."));
+        Book book = bookRepository.findById(id)
+                .orElseThrow(()-> new BooksNotFoundException("독서활동 이력을 찾을 수 없습니다."));
         book.update(modifyBooksRequest.getName(), modifyBooksRequest.getAuthor(), modifyBooksRequest.getField(), modifyBooksRequest.getReview());
     }
 

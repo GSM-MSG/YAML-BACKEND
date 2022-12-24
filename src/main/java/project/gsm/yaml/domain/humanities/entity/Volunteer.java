@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import project.gsm.yaml.domain.humanities.presentation.dto.request.ModifyVolunteerRequest;
 import project.gsm.yaml.domain.user.entity.User;
 
 import javax.persistence.*;
@@ -25,4 +26,8 @@ public class Volunteer {
     private Humanities humanities;
 
 
+    public void update(String name, Integer time) {
+        this.name = name;
+        this.time = time;
+    }
 }
