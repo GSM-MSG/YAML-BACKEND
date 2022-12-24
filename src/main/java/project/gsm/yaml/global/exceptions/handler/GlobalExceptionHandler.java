@@ -5,6 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import project.gsm.yaml.domain.humanities.exceptions.PrizeNotFoundException;
+import project.gsm.yaml.domain.major.exceptions.AwardsNotFoundException;
+import project.gsm.yaml.domain.major.exceptions.ContestNotFoundException;
 import project.gsm.yaml.domain.user.exception.exceptioncollection.BlackListAlreadyExistException;
 import project.gsm.yaml.domain.user.exception.exceptioncollection.RefreshTokenNotFoundException;
 import project.gsm.yaml.domain.user.exception.exceptioncollection.UserNotFoundException;
@@ -38,8 +40,20 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.valueOf(exception.getErrorCode().getStatus()));
     }
 
-    @ExceptionHandler(BlackListAlreadyExistException.class)
+    @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<ErrorResponse> UserNotFoundException(UserNotFoundException exception) {
+        ErrorResponse errorResponse = new ErrorResponse(exception.getErrorCode().getMessage(), exception.getErrorCode().getStatus());
+        return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.valueOf(exception.getErrorCode().getStatus()));
+    }
+
+    @ExceptionHandler(AwardsNotFoundException.class)
+    public ResponseEntity<ErrorResponse> AwardsNotFoundException(AwardsNotFoundException exception) {
+        ErrorResponse errorResponse = new ErrorResponse(exception.getErrorCode().getMessage(), exception.getErrorCode().getStatus());
+        return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.valueOf(exception.getErrorCode().getStatus()));
+    }
+
+    @ExceptionHandler(ContestNotFoundException.class)
+    public ResponseEntity<ErrorResponse> ContestNotFoundException(ContestNotFoundException exception) {
         ErrorResponse errorResponse = new ErrorResponse(exception.getErrorCode().getMessage(), exception.getErrorCode().getStatus());
         return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.valueOf(exception.getErrorCode().getStatus()));
     }

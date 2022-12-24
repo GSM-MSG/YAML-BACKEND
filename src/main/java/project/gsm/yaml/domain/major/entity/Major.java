@@ -33,6 +33,10 @@ public class Major {
 
     private Boolean clubMajorPresentation;
 
+    private Boolean attendGsmFestival;
+
+    private Boolean attendClubMajorPresentation;
+
     private Integer afterSchool;
 
     private Boolean deepMajorClub;
@@ -55,5 +59,10 @@ public class Major {
     @PrePersist
     public void prePersist(){
         this.majorClub = this.majorClub == null ? "" : this.majorClub;
+    }
+
+    public void update(Boolean gsmFestival, Boolean clubMajorPresentation) {
+        this.gsmFestival = gsmFestival;
+        this.clubMajorPresentation = clubMajorPresentation;
     }
 }

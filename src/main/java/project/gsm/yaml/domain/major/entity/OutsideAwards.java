@@ -25,4 +25,9 @@ public class OutsideAwards {
     @ManyToOne
     @JoinColumn(name = "major")
     private Major major;
+
+    public void update(String name, String fileUrl) {
+        this.name = name;
+        this.fileUrl = fileUrl;
+    }
 }

@@ -4,9 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import project.gsm.yaml.domain.major.presentation.dto.request.CertificateRequest;
-import project.gsm.yaml.domain.major.presentation.dto.request.OutsideContestRequest;
-import project.gsm.yaml.domain.major.presentation.dto.request.OutsidePrizeRequest;
+import project.gsm.yaml.domain.major.presentation.dto.request.*;
 import project.gsm.yaml.domain.major.presentation.dto.response.*;
 import project.gsm.yaml.domain.major.service.*;
 import javax.validation.Valid;
@@ -66,5 +64,23 @@ public class MajorController {
     public ResponseEntity<Void> postCertificate(@RequestBody @Valid CertificateRequest certificateRequest) {
         certificateService.postCertificate(certificateRequest);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @PatchMapping("/outside-prize/{id}")
+    public ResponseEntity<Void> patchOutsidePrize(@PathVariable Long id, @RequestBody @Valid ModifyOutsidePrizeRequest modifyOutsidePrizeRequest) {
+        prizeService.patchOutsidePrize(id, modifyOutsidePrizeRequest);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PatchMapping("/inside-prize")
+    public ResponseEntity<Void> patchInsidePrize(@RequestBody @Valid ModifyInsidePrizeRequest modifyInsidePrizeRequest) {
+        prizeService.patchInsidePrize(modifyInsidePrizeRequest);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PatchMapping("/outside-contest/{id}")
+    public ResponseEntity<Void> patchOutsideContest(@PathVariable Long id, @RequestBody @Valid ModifyOutsideContestRequest modifyOutsideContestRequest) {
+        contestService.patchOutsideContest(id, modifyOutsideContestRequest);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
