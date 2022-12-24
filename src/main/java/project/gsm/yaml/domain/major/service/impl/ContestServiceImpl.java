@@ -41,7 +41,7 @@ public class ContestServiceImpl implements ContestService {
     }
 
     @Override
-    public void postPrize(OutsideContestRequest outsideContestRequest) {
+    public void postContest(OutsideContestRequest outsideContestRequest) {
         OutsideContest outsideContest = OutsideContest.builder()
                 .name(outsideContestRequest.getName())
                 .fileUrl(outsideContestRequest.getFileURL())

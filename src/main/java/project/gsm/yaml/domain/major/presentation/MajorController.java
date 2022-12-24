@@ -50,7 +50,7 @@ public class MajorController {
     }
 
     @PostMapping("/outside-prize")
-    public ResponseEntity<Void> postOutSidePrize(@RequestBody @Valid OutsidePrizeRequest outsidePrizeRequest) {
+    public ResponseEntity<Void> postOutsidePrize(@RequestBody @Valid OutsidePrizeRequest outsidePrizeRequest) {
         prizeService.postPrize(outsidePrizeRequest);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

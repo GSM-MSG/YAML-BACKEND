@@ -6,5 +6,5 @@ import project.gsm.yaml.domain.major.presentation.dto.response.ContestResponse;
 public interface ContestService {
     ContestResponse getContest();
 
-    void postPrize(OutsideContestRequest outsideContestRequest);
+    void postContest(OutsideContestRequest outsideContestRequest);
 }
