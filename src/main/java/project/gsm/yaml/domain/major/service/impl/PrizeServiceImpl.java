@@ -44,7 +44,7 @@ public class PrizeServiceImpl implements PrizeService {
 
     @Override
     public void postPrize(OutsidePrizeRequest outsidePrizeRequest) {
-    OutsideAwards outsideAwards = OutsideAwards.builder()
+        OutsideAwards outsideAwards = OutsideAwards.builder()
                 .name(outsidePrizeRequest.getName())
                 .fileUrl(outsidePrizeRequest.getFileURL())
                 .build();
