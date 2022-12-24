@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import project.gsm.yaml.domain.major.presentation.dto.request.CertificateRequest;
+import project.gsm.yaml.domain.major.presentation.dto.request.ModifyOutsidePrizeRequest;
 import project.gsm.yaml.domain.major.presentation.dto.request.OutsideContestRequest;
 import project.gsm.yaml.domain.major.presentation.dto.request.OutsidePrizeRequest;
 import project.gsm.yaml.domain.major.presentation.dto.response.*;
@@ -66,5 +67,11 @@ public class MajorController {
     public ResponseEntity<Void> postCertificate(@RequestBody @Valid CertificateRequest certificateRequest) {
         certificateService.postCertificate(certificateRequest);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @PatchMapping("/outside-prize/{id}")
+    public ResponseEntity<Void> patchOutsidePrize(@PathVariable Long id, @RequestBody @Valid ModifyOutsidePrizeRequest modifyOutsidePrizeRequest) {
+        prizeService.patchPrize(id, modifyOutsidePrizeRequest);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import project.gsm.yaml.domain.major.entity.Major;
 import project.gsm.yaml.domain.major.entity.OutsideAwards;
+import project.gsm.yaml.domain.major.exceptions.AwardsNotFoundException;
+import project.gsm.yaml.domain.major.presentation.dto.request.ModifyOutsidePrizeRequest;
 import project.gsm.yaml.domain.major.presentation.dto.request.OutsidePrizeRequest;
 import project.gsm.yaml.domain.major.presentation.dto.response.InsidePrizeResponse;
 import project.gsm.yaml.domain.major.presentation.dto.response.PrizeResponse;
@@ -50,5 +52,11 @@ public class PrizeServiceImpl implements PrizeService {
                 .build();
 
         outSideAwardsRepository.save(outsideAwards);
+    }
+
+    @Override
+    public void patchPrize(Long id, ModifyOutsidePrizeRequest modifyOutsidePrizeRequest) {
+        OutsideAwards outsideAwards = outSideAwardsRepository.findById(id).orElseThrow(()-> new AwardsNotFoundException("수상경력을 찾을 수 없습니다"));
+        outsideAwards.update(modifyOutsidePrizeRequest.getName(), modifyOutsidePrizeRequest.getFileURL());
     }
 }
