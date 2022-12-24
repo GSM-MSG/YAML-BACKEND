@@ -55,7 +55,7 @@ public class PrizeServiceImpl implements PrizeService {
     }
 
     @Override
-    public void PatchPrize(Long id, ModifyOutsidePrizeRequest modifyOutsidePrizeRequest) {
+    public void patchPrize(Long id, ModifyOutsidePrizeRequest modifyOutsidePrizeRequest) {
         OutsideAwards outsideAwards = outSideAwardsRepository.findById(id).orElseThrow(()-> new AwardsNotFoundException("수상경력을 찾을 수 없습니다"));
         outsideAwards.update(modifyOutsidePrizeRequest.getName(), modifyOutsidePrizeRequest.getFileURL());
     }
