@@ -83,4 +83,10 @@ public class MajorController {
         contestService.patchOutsideContest(id, modifyOutsideContestRequest);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @PatchMapping("/inside-contest")
+    public ResponseEntity<Void> patchInsideContest(@RequestBody @Valid ModifyInsideContestRequest modifyInsideContestRequest) {
+        contestService.patchInsideContest(modifyInsideContestRequest);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
