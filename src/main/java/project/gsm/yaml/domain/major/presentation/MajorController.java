@@ -71,7 +71,7 @@ public class MajorController {
 
     @PatchMapping("/outside-prize/{id}")
     public ResponseEntity<Void> patchOutsidePrize(@PathVariable Long id, @RequestBody @Valid ModifyOutsidePrizeRequest modifyOutsidePrizeRequest) {
-        prizeService.patchPrize(id, modifyOutsidePrizeRequest);
+        prizeService.patchOutsidePrize(id, modifyOutsidePrizeRequest);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

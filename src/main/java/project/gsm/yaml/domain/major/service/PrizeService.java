@@ -9,5 +9,5 @@ public interface PrizeService {
 
     void postPrize(OutsidePrizeRequest outsidePrizeRequest);
 
-    void patchPrize(Long id, ModifyOutsidePrizeRequest modifyOutsidePrizeRequest);
+    void patchOutsidePrize(Long id, ModifyOutsidePrizeRequest modifyOutsidePrizeRequest);
 }
