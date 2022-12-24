@@ -3,6 +3,7 @@ package project.gsm.yaml.domain.humanities.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import project.gsm.yaml.domain.humanities.entity.Humanities;
+import project.gsm.yaml.domain.humanities.presentation.dto.request.ModifyHumanitiesCertificateRequest;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.ChineseCertificateResponse;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.HistoryCertificateResponse;
 import project.gsm.yaml.domain.humanities.presentation.dto.response.HumanitiesCertificateResponse;
@@ -29,5 +30,12 @@ public class HumanitiesCertificateServiceImpl implements HumanitiesCertificateSe
                 .history(historyCertificate)
                 .total(total)
                 .build();
+    }
+
+    @Override
+    public void patchCertificateExecute(ModifyHumanitiesCertificateRequest modifyHumanitiesCertificateRequest) {
+        Humanities humanities = userUtil.currentUser().getHumanities();
+        humanities.getChineseCertificate().update(modifyHumanitiesCertificateRequest.getChinese().getLevel(), modifyHumanitiesCertificateRequest.getChinese().getFileURL());
+        humanities.getHistoryCertificates().update(modifyHumanitiesCertificateRequest.getHistory().getLevel(), modifyHumanitiesCertificateRequest.getHistory().getFileURL());
     }
 }

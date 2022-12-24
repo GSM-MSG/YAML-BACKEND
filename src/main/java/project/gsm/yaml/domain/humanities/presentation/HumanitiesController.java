@@ -94,4 +94,10 @@ public class HumanitiesController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @PatchMapping("/certificate")
+    public ResponseEntity<Void> patchCertificate(@RequestBody @Valid ModifyHumanitiesCertificateRequest modifyHumanitiesCertificateRequest){
+        humanitiesCertificateService.patchCertificateExecute(modifyHumanitiesCertificateRequest);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 }
