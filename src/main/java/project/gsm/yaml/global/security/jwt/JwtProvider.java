@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import project.gsm.yaml.global.exceptions.exceptioncollection.TokenExpirationException;
 import project.gsm.yaml.global.exceptions.exceptioncollection.TokenNotValidException;
-import project.gsm.yaml.global.security.jwt.auth.AuthDetailsService;
+import project.gsm.yaml.global.security.auth.AuthDetailsService;
 import project.gsm.yaml.global.security.jwt.properties.JwtProperties;
 
 import javax.servlet.http.HttpServletRequest;
