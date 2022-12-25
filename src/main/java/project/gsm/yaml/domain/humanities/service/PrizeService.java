@@ -10,4 +10,6 @@ public interface PrizeService {
     void postPrizeExecute(PrizeRequest prizeRequest);
 
     void patchPrizeExecute(Long id, ModifyPrizeRequest modifyPrizeRequest);
+
+    void deletePrizeExecute(Long id);
 }

@@ -106,4 +106,34 @@ public class HumanitiesController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @DeleteMapping("/prize/{id}")
+    public ResponseEntity<Void> deletePrize(@PathVariable Long id){
+        prizeService.deletePrizeExecute(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping("/books/{id}")
+    public ResponseEntity<Void> deleteBooks(@PathVariable Long id){
+        bookService.deleteBooksExecute(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping("/volunteer/{id}")
+    public ResponseEntity<Void> deleteVolunteer(@PathVariable Long id){
+        volunteerService.deleteVolunteerExecute(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping("/chinese-certificate")
+    public ResponseEntity<Void> deleteChineseCertificate(@PathVariable Long id){
+        humanitiesCertificateService.deleteChineseCertificate(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping("/history-certificate")
+    public ResponseEntity<Void> deleteHistoryCertificate(@PathVariable Long id){
+        humanitiesCertificateService.deletehistoryCertificate(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 }

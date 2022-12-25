@@ -13,4 +13,6 @@ public interface BookService {
     void patchBooksExecute(Long id, ModifyBooksRequest modifyBooksRequest);
 
     void patchBooksMarathonExecute(ModifyBookMarathonRequest modifyBookMarathonRequest);
+
+    void deleteBooksExecute(Long id);
 }

@@ -67,4 +67,9 @@ public class BookSeviceImpl implements BookService {
         Humanities humanities = userUtil.currentUser().getHumanities();
         humanities.updateBooksMarathon(modifyBookMarathonRequest.getBookMarathon());
     }
+
+    @Override
+    public void deleteBooksExecute(Long id) {
+        bookRepository.deleteById(id);
+    }
 }

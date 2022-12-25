@@ -7,4 +7,8 @@ public interface HumanitiesCertificateService {
     HumanitiesCertificateResponse humanitiesCertificateExecute();
 
     void patchCertificateExecute(ModifyHumanitiesCertificateRequest modifyHumanitiesCertificateRequest);
+
+    void deleteChineseCertificate(Long id);
+
+    void deletehistoryCertificate(Long id);
 }

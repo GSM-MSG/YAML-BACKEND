@@ -10,4 +10,6 @@ public interface VolunteerService {
     void postVolunteersExecute(VolunteerRequest volunteerRequest);
 
     void patchVolunteerExecute(Long id, ModifyVolunteerRequest modifyVolunteerRequest);
+
+    void deleteVolunteerExecute(Long id);
 }
