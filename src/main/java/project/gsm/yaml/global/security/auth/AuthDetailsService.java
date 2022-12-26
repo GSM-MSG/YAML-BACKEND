@@ -1,4 +1,4 @@
-package project.gsm.yaml.global.security.jwt.auth;
+package project.gsm.yaml.global.security.auth;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
