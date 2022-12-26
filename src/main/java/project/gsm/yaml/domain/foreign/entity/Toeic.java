@@ -5,12 +5,13 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum Hsk {
-    SIX(1000),
-    FIVE(900),
-    FOUR(800),
-    THREE(700),
-    TWO(600),
+public enum Toeic {
+    TOEIC700(1000),
+    TOEIC630(900),
+    TOEIC560(800),
+    TOEIC490(700),
+    TOEIC420(600),
+    TOEIC350(500),
     NONE(0);
 
     private Integer score;

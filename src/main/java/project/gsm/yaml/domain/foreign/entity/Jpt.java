@@ -5,12 +5,13 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum Hsk {
-    SIX(1000),
-    FIVE(900),
-    FOUR(800),
-    THREE(700),
-    TWO(600),
+public enum Jpt {
+    JPT700(1000),
+    JPT630(900),
+    JPT560(800),
+    JPT490(700),
+    JPT420(600),
+    JPT350(500),
     NONE(0);
 
     private Integer score;

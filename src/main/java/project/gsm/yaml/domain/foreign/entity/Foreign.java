@@ -16,15 +16,28 @@ public class Foreign {
     @Id
     @GeneratedValue
     private Long id;
-    private Integer toeic;
-    private Integer toefl;
-    private Integer teps;
+
+    @Enumerated(EnumType.STRING)
+    private Toeic toeic;
+
+    @Enumerated(EnumType.STRING)
+    private Toefl toefl;
+
+    @Enumerated(EnumType.STRING)
+    private Teps teps;
+
     @Enumerated(EnumType.STRING)
     private ToeicSpeaking toeicSpeaking;
+
     @Enumerated(EnumType.STRING)
     private Opic opic;
-    private Integer jpt;
-    private Integer cpt;
+
+    @Enumerated(EnumType.STRING)
+    private Jpt jpt;
+
+    @Enumerated(EnumType.STRING)
+    private Cpt cpt;
+
     @Enumerated(EnumType.STRING)
     private Hsk hsk;
 }

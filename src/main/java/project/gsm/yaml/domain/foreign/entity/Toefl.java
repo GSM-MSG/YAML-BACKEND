@@ -5,12 +5,13 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum Hsk {
-    SIX(1000),
-    FIVE(900),
-    FOUR(800),
-    THREE(700),
-    TWO(600),
+public enum Toefl {
+    TOEFL80(1000),
+    TOEFL75(900),
+    TOEFL70(800),
+    TOEFL65(700),
+    TOEFL60(600),
+    TOEFL55(500),
     NONE(0);
 
     private Integer score;

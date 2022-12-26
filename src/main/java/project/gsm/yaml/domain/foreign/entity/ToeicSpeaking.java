@@ -11,5 +11,6 @@ public enum ToeicSpeaking {
     LEVEL_4(800),
     LEVEL_3(700),
     NONE(0);
+
     private Integer score;
 }

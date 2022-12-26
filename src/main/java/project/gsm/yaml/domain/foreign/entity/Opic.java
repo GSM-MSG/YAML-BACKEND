@@ -11,5 +11,6 @@ public enum Opic {
     INT_LOW(800),
     NOVICE_HIGH(700),
     NONE(0);
+
     private Integer score;
 }
