@@ -34,7 +34,7 @@ public class Humanities {
     @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "humanities")
     private HistoryCertificate historyCertificates;
 
-    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "humanities")
+    @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "humanities")
     private Sports sports;
 
     @Enumerated(EnumType.STRING)
@@ -48,12 +48,6 @@ public class Humanities {
 
     @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "humanities")
     private User user;
-
-    @PrePersist
-    public void prePersist(){
-        this.chineseCertificate = this.chineseCertificate == null ? "" : this.chineseCertificate;
-        this.historyCertificates = this.historyCertificates == null ? "" : this.historyCertificates;
-    }
 
     public void updateBooksMarathon(BookMarathon bookMarathon) {
         this.bookMarathon = bookMarathon;

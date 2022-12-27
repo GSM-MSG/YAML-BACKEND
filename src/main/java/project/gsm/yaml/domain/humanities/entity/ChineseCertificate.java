@@ -25,6 +25,11 @@ public class ChineseCertificate {
     @JoinColumn(name = "humanities")
     private Humanities humanities;
 
+    @PrePersist
+    public void prePersist(){
+        this.fileURL = this.fileURL == null ? "" : this.fileURL;
+    }
+
     public void update(ChineseLevel level, String fileURL) {
         this.level = level;
         this.fileURL = fileURL;

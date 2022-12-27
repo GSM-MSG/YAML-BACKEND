@@ -21,7 +21,7 @@ public class Sports {
     private SchoolSportsCompetition schoolCompetition;
     private Integer total;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "humanities")
     private Humanities humanities;
 

@@ -24,6 +24,11 @@ public class HistoryCertificate {
     @JoinColumn(name = "humanities")
     private Humanities humanities;
 
+    @PrePersist
+    public void prePersist(){
+        this.fileURL = this.fileURL == null ? "" : this.fileURL;
+    }
+
     public void update(HistoryLevel level, String fileURL) {
         this.level = level;
         this.fileURL = fileURL;
